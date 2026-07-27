@@ -3,486 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ข่าวสารและเรื่องราว | มูลนิธิแสง-ไซ้กี เหตระกูล</title>
-    
+    <title>ข่าวสารและพันธกิจ | มูลนิธิแสง-ไซ้กี เหตระกูล</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --accent-color: #ee047c;
-            --accent-hover: #c90368;
-            --accent-light: #fde6f2;
-            --primary-dark: #1c1c1e;
-            --bg-light: #f8f9fa;
+            --brand-primary: #ee047c;
+            --brand-hover: #c90368;
+            --dark-main: #1c1c1e;
+            --bg-gray: #f8f9fa;
             --bg-white: #ffffff;
             --border-color: #e5e5e7;
             --text-main: #2d2d2d;
             --text-muted: #636366;
             --font-head: 'Prompt', sans-serif;
             --font-body: 'Sarabun', sans-serif;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
-            --shadow-md: 0 8px 24px rgba(0,0,0,0.1);
-            --radius-sm: 6px;
             --radius-md: 12px;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
         body { font-family: var(--font-body); color: var(--text-main); background-color: var(--bg-white); line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
 
-        .container { max-width: 1300px; margin: 0 auto; padding: 0 5%; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 4%; }
 
-        /* 1. MAIN HEADER */
-        header.main-header {
-            background: var(--bg-white);
-            border-bottom: 3px solid var(--accent-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow-sm);
-        }
+        /* Header Navigation */
+        header { background: #fff; border-bottom: 2px solid var(--border-color); position: sticky; top: 0; z-index: 1000; }
+        .nav-wrap { display: flex; justify-content: space-between; align-items: center; padding: 16px 4%; max-width: 1200px; margin: 0 auto; }
+        .logo-badge { background: var(--brand-primary); color: #fff; font-family: var(--font-head); font-weight: 700; padding: 6px 12px; border-radius: 6px; }
+        .brand-title { font-family: var(--font-head); font-weight: 700; color: var(--dark-main); font-size: 1.1rem; }
+        
+        nav.nav-links { display: flex; gap: 20px; font-family: var(--font-head); font-size: 0.95rem; align-items: center; }
+        nav.nav-links a:hover { color: var(--brand-primary); }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
+        /* Hero Banner */
+        .hero { background: var(--bg-gray); padding: 40px 0; border-bottom: 1px solid var(--border-color); margin-bottom: 40px; }
+        .hero h1 { font-family: var(--font-head); font-size: 2.2rem; color: var(--dark-main); margin-bottom: 10px; }
+        .hero p { color: var(--text-muted); font-size: 1.1rem; }
 
-        .brand-logo { display: flex; align-items: center; gap: 12px; }
-        .logo-badge {
-            background-color: var(--accent-color);
-            color: #ffffff;
-            font-family: var(--font-head);
-            font-weight: 700;
-            padding: 8px 12px;
-            border-radius: var(--radius-sm);
-            font-size: 1.2rem;
-        }
-        .title-th { font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; color: var(--primary-dark); }
-        .title-en { font-size: 0.78rem; color: var(--text-muted); display: block; }
+        /* News & Mission Layout */
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-bottom: 50px; }
+        .news-card { border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; background: #fff; transition: transform 0.2s; }
+        .news-card:hover { transform: translateY(-4px); }
+        .news-content { padding: 20px; }
+        .news-tag { display: inline-block; background: var(--bg-gray); color: var(--brand-primary); font-family: var(--font-head); font-size: 0.8rem; font-weight: 600; padding: 4px 10px; border-radius: 4px; margin-bottom: 10px; }
+        .news-card h3 { font-family: var(--font-head); font-size: 1.2rem; color: var(--dark-main); margin-bottom: 10px; }
+        .news-card p { font-size: 0.95rem; color: var(--text-muted); }
 
-        nav.nav-menu { display: flex; align-items: center; gap: 25px; }
-        nav.nav-menu a {
-            font-family: var(--font-head);
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: var(--primary-dark);
-            transition: color 0.2s;
-        }
-        nav.nav-menu a:hover, nav.nav-menu a.active { color: var(--accent-color); }
-
-        .btn-donate {
-            background-color: var(--accent-color);
-            color: #ffffff !important;
-            font-family: var(--font-head);
-            font-weight: 600;
-            padding: 10px 22px;
-            border-radius: 25px;
-            box-shadow: 0 4px 12px rgba(238, 4, 124, 0.3);
-            transition: all 0.2s;
-        }
-        .btn-donate:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
-
-        /* 2. PAGE TITLE BANNER */
-        .page-banner {
-            background: var(--bg-light);
-            padding: 50px 0 30px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .page-banner h1 {
-            font-family: var(--font-head);
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 10px;
-        }
-        .page-banner p { font-size: 1.1rem; color: var(--text-muted); max-width: 700px; }
-
-        /* 3. FEATURED STORY HERO (UNICEF STYLE) */
-        .featured-section { padding: 50px 0; }
-        .featured-card {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 40px;
-            background: var(--bg-white);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
-            transition: box-shadow 0.3s;
-        }
-        .featured-card:hover { box-shadow: var(--shadow-md); }
-        .featured-img {
-            width: 100%;
-            height: 100%;
-            min-height: 380px;
-            object-fit: cover;
-        }
-        .featured-content {
-            padding: 40px 40px 40px 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .story-tag {
-            display: inline-block;
-            background: var(--accent-light);
-            color: var(--accent-color);
-            font-family: var(--font-head);
-            font-weight: 600;
-            font-size: 0.85rem;
-            padding: 4px 12px;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            width: fit-content;
-        }
-        .story-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; }
-        .featured-title {
-            font-family: var(--font-head);
-            font-size: 1.8rem;
-            font-weight: 700;
-            line-height: 1.35;
-            color: var(--primary-dark);
-            margin-bottom: 15px;
-        }
-        .featured-excerpt {
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-            line-height: 1.7;
-        }
-        .btn-read-more {
-            font-family: var(--font-head);
-            font-weight: 600;
-            color: var(--accent-color);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 1rem;
-        }
-
-        /* 4. CATEGORY FILTER BAR */
-        .filter-section {
-            padding: 20px 0 40px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .filter-bar {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .filter-btn {
-            background: var(--bg-light);
-            border: 1px solid var(--border-color);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-family: var(--font-head);
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--accent-color);
-            color: #ffffff;
-            border-color: var(--accent-color);
-        }
-
-        /* 5. NEWS GRID */
-        .news-section { padding: 60px 0 80px; }
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 35px;
-        }
-        .news-card {
-            background: var(--bg-white);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.25s, box-shadow 0.25s;
-        }
-        .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-        .news-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-        .news-card-body {
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-        .card-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-        .news-card-title {
-            font-family: var(--font-head);
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--primary-dark);
-            line-height: 1.4;
-            margin-bottom: 12px;
-        }
-        .news-card-excerpt {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            line-height: 1.6;
-            flex-grow: 1;
-        }
-
-        /* Load More Button */
-        .load-more-wrapper {
-            text-align: center;
-            margin-top: 50px;
-        }
-        .btn-load-more {
-            background: transparent;
-            border: 2px solid var(--accent-color);
-            color: var(--accent-color);
-            font-family: var(--font-head);
-            font-weight: 600;
-            padding: 12px 35px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.2s;
-        }
-        .btn-load-more:hover {
-            background: var(--accent-color);
-            color: #ffffff;
-        }
-
-        /* 6. FOOTER */
-        footer {
-            background: var(--primary-dark);
-            color: #ffffff;
-            padding: 50px 5% 30px;
-            margin-top: 60px;
-        }
-        .footer-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 30px;
-            margin-bottom: 30px;
-        }
-        .footer-bottom {
-            max-width: 1300px;
-            margin: 0 auto;
-            text-align: center;
-            color: #8e8e93;
-            font-size: 0.88rem;
-        }
-
-        @media (max-width: 900px) {
-            .featured-card { grid-template-columns: 1fr; }
-            .featured-content { padding: 25px; }
-            .nav-menu { display: none; }
-        }
+        /* Footer */
+        footer { border-top: 1px solid var(--border-color); padding: 30px 0; background: var(--bg-gray); text-align: center; color: var(--text-muted); font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="nav-container">
-            <a href="index.html" class="brand-logo">
-                <div class="logo-badge">SHF</div>
-                <div>
-                    <span class="title-th">มูลนิธิแสง-ไซ้กี เหตระกูล</span>
-                    <span class="title-en">Saeng-Saikee Hetrakul Foundation</span>
-                </div>
+    <header>
+        <div class="nav-wrap">
+            <a href="index.html" style="display: flex; align-items: center; gap: 10px;">
+                <span class="logo-badge">SHF</span>
+                <span class="brand-title">มูลนิธิแสง-ไซ้กี เหตระกูล</span>
             </a>
-
-            <nav class="nav-menu">
-                <a href="index.html#about">เกี่ยวกับมูลนิธิ</a>
-                <a href="index.html#missions">สิ่งที่เราทำ</a>
-                <a href="news.html" class="active">ข่าวสารและเรื่องราว</a>
-                <a href="index.html#take-action">ร่วมมือกับเรา</a>
-                <a href="donate.html" class="btn-donate">บริจาคตอนนี้</a>
+            <nav class="nav-links">
+                <a href="index.html">หน้าแรก</a>
+                <a href="about.html">เกี่ยวกับเรา</a>
+                <a href="news.html" style="color: var(--brand-primary); font-weight: 600;">ข่าวสาร</a>
+                <a href="donate.html" style="background: var(--brand-primary); color: #fff; padding: 6px 16px; border-radius: 20px;">บริจาค</a>
             </nav>
         </div>
     </header>
 
-    <section class="page-banner">
+    <section class="hero">
         <div class="container">
-            <h1>ข่าวสารและเรื่องราว</h1>
-            <p>ติดตามเรื่องราวการลงพื้นที่ ผลกระทบเชิงบวก และความเคลื่อนไหวล่าสุดจากภารกิจของมูลนิธิแสง-ไซ้กี เหตระกูล ทั่วประเทศไทย</p>
+            <h1>ข่าวสารและพันธกิจ</h1>
+            <p>ติดตามเรื่องราว การลงพื้นที่ช่วยเหลือ และภารกิจล่าสุดของมูลนิธิฯ</p>
         </div>
     </section>
 
-    <section class="featured-section">
-        <div class="container">
-            <article class="featured-card">
-                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=80" alt="หน่วยแพทย์เคลื่อนที่ออกปฏิบัติงาน" class="featured-img">
-                <div class="featured-content">
-                    <div>
-                        <span class="story-tag">เรื่องราวเด่น</span>
-                        <div class="story-date">15 มกราคม 2026</div>
-                    </div>
-                    <h2 class="featured-title">รอยยิ้มและการรักษา: 40 ปีการเดินทางของหน่วยแพทย์เคลื่อนที่สู่ยอดดอย</h2>
-                    <p class="featured-excerpt">เปิดบันทึกภารกิจทีมแพทย์และอาสาสมัครมูลนิธิฯ ในการบุกพอนำบริการทางด้านสาธารณสุขและยารักษาโรคไปมอบให้แก่ชาวบ้านในพื้นที่ห่างไกลการคมนาคม ณ อำเภอแม่ฟ้าหลวง จังหวัดเชียงราย...</p>
-                    <a href="#" class="btn-read-more" onclick="alert('อ่านบทความฉบับเต็ม'); return false;">อ่านเรื่องราวทั้งหมด &rarr;</a>
+    <main class="container">
+        <div class="news-grid">
+            
+            <article class="news-card">
+                <div class="news-content">
+                    <span class="news-tag">พันธกิจหลัก</span>
+                    <h3>หน่วยแพทย์เคลื่อนที่ เหตระกูล-เดลินิวส์</h3>
+                    <p>ให้บริการตรวจรักษาโรค แจกจ่ายยา และบริการทันตกรรมแก่ประชาชนในพื้นที่ห่างไกลทั่วประเทศโดยไม่มีค่าใช้จ่าย</p>
                 </div>
             </article>
+
+            <article class="news-card">
+                <div class="news-content">
+                    <span class="news-tag">ข่าวสารล่าสุด</span>
+                    <h3>กิจกรรมลงพื้นที่ช่วยเหลือชุมชนประจำปี</h3>
+                    <p>สรุปการดำเนินงานหน่วยแพทย์เคลื่อนที่ ร่วมกับทีมแพทย์ผู้เชี่ยวชาญเพื่อดูแลสุขภาพของเยาวชนและผู้สูงอายุ</p>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-content">
+                    <span class="news-tag">การศึกษา</span>
+                    <h3>โครงการมอบทุนการศึกษาแก่เยาวชน</h3>
+                    <p>สนับสนุนทุนการศึกษาแก่เด็กและเยาวชนที่ขาดแคลนทุนทรัพย์ เพื่อสร้างโอกาสทางการศึกษาที่เท่าเทียม</p>
+                </div>
+            </article>
+
         </div>
-    </section>
-
-    <section class="filter-section">
-        <div class="container">
-            <div class="filter-bar">
-                <button class="filter-btn active" onclick="filterCategory(this, 'all')">ทั้งหมด</button>
-                <button class="filter-btn" onclick="filterCategory(this, 'health')">สาธารณสุข & หน่วยแพทย์</button>
-                <button class="filter-btn" onclick="filterCategory(this, 'education')">ทุนการศึกษา</button>
-                <button class="filter-btn" onclick="filterCategory(this, 'relief')">ช่วยเหลือภัยพิบัติ</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="news-section">
-        <div class="container">
-            <div class="news-grid" id="news-grid">
-                
-                <article class="news-card" data-category="health">
-                    <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80" alt="ข่าวหน่วยแพทย์">
-                    <div class="news-card-body">
-                        <div class="card-meta">
-                            <span class="story-tag">สาธารณสุข</span>
-                            <span class="story-date">10 มกราคม 2026</span>
-                        </div>
-                        <h3 class="news-card-title">มูลนิธิฯ มอบอุปกรณ์การแพทย์แก่โรงพยาบาลส่งเสริมสุขภาพตำบล</h3>
-                        <p class="news-card-excerpt">จัดส่งเครื่องวัดความดัน เครื่องตรวจวัดน้ำตาล และอุปกรณ์ปฐมพยาบาลเบื้องต้นเพื่อยกระดับศูนย์สุขภาพชุมชน...</p>
-                        <a href="#" class="btn-read-more" onclick="alert('อ่านข่าวสารนี้'); return false;">อ่านต่อ &rarr;</a>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="education">
-                    <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80" alt="ทุนการศึกษา">
-                    <div class="news-card-body">
-                        <div class="card-meta">
-                            <span class="story-tag">การศึกษา</span>
-                            <span class="story-date">20 ธันวาคม 2025</span>
-                        </div>
-                        <h3 class="news-card-title">พิธีมอบทุนการศึกษาประจำปี 2025 แก่เยาวชนภาคอีสาน</h3>
-                        <p class="news-card-excerpt">สนับสนุนอนาคตการศึกษาเด็กไทย มอบทุนการศึกษาต่อเนื่องแก่เยาวชนเรียนดีแต่ขาดแคลนทุนทรัพย์กว่า 300 ทุน...</p>
-                        <a href="#" class="btn-read-more" onclick="alert('อ่านข่าวสารนี้'); return false;">อ่านต่อ &rarr;</a>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="relief">
-                    <img src="https://images.unsplash.com/photo-1593113580456-f6c4be09f7a6?auto=format&fit=crop&w=800&q=80" alt="ถุงยังชีพ">
-                    <div class="news-card-body">
-                        <div class="card-meta">
-                            <span class="story-tag">ช่วยเหลือภัยพิบัติ</span>
-                            <span class="story-date">05 ธันวาคม 2025</span>
-                        </div>
-                        <h3 class="news-card-title">ลงพื้นที่เร่งด่วนมอบถุงยังชีพผู้ประสบอุทกภัยภาคใต้</h3>
-                        <p class="news-card-excerpt">ทีมอาสาสมัครมูลนิธิฯ ลุยน้ำท่วมแจกจ่ายอาหารแห้ง น้ำดื่ม และยาบรรเทาทุกข์แก่ผู้ได้รับผลกระทบกว่า 500 ครัวเรือน...</p>
-                        <a href="#" class="btn-read-more" onclick="alert('อ่านข่าวสารนี้'); return false;">อ่านต่อ &rarr;</a>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="health">
-                    <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80" alt="บริการสายตา">
-                    <div class="news-card-body">
-                        <div class="card-meta">
-                            <span class="story-tag">สาธารณสุข</span>
-                            <span class="story-date">18 พฤศจิกายน 2025</span>
-                        </div>
-                        <h3 class="news-card-title">โครงการวัดสายตาและแจกแว่นตาฟรีแก่ผู้สูงอายุในชนบท</h3>
-                        <p class="news-card-excerpt">คืนโลกสดใสให้ผู้สูงวัย บริการตรวจวัดสายตาและตัดแว่นตาโดยจักษุแพทย์อาสาโดยไม่มีค่าใช้จ่าย...</p>
-                        <a href="#" class="btn-read-more" onclick="alert('อ่านข่าวสารนี้'); return false;">อ่านต่อ &rarr;</a>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="education">
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="ปรับปรุงห้องเรียน">
-                    <div class="news-card-body">
-                        <div class="card-meta">
-                            <span class="story-tag">การศึกษา</span>
-                            <span class="story-date">02 พฤศจิกายน 2025</span>
-                        </div>
-                        <h3 class="news-card-title">ส่งมอบห้องคอมพิวเตอร์และอาคารเรียนใหม่ ณ จังหวัดน่าน</h3>
-                        <p class="news-card-excerpt">ปรับปรุงสภาพแวดล้อมการเรียนรู้ พร้อมจัดหาคอมพิวเตอร์เพื่อเปิดโลกดิจิทัลให้แก่นักเรียนในพื้นที่ห่างไกล...</p>
-                        <a href="#" class="btn-read-more" onclick="alert('อ่านข่าวสารนี้'); return false;">อ่านต่อ &rarr;</a>
-                    </div>
-                </article>
-
-                <article class="news-card" data-category="relief">
-                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80" alt="ต้านภัยหนาว">
-                    <div class="news-card-body">
-                        <div class="card-meta">
-                            <span class="story-tag">ช่วยเหลือภัยพิบัติ</span>
-                            <span class="story-date">15 ตุลาคม 2025</span>
-                        </div>
-                        <h3 class="news-card-title">คาราวานต้านภัยหนาว มอบผ้าห่มและเสื้อหนาวแก่เด็กบนดอย</h3>
-                        <p class="news-card-excerpt">ส่งมอบความอบอุ่นก่อนฤดูหนาวเยือน มอบผ้าห่มเนื้อดีและเครื่องหนาวแก่เด็กๆ และครอบครัวขาดแคลน...</p>
-                        <a href="#" class="btn-read-more" onclick="alert('อ่านข่าวสารนี้'); return false;">อ่านต่อ &rarr;</a>
-                    </div>
-                </article>
-
-            </div>
-
-            <div class="load-more-wrapper">
-                <button class="btn-load-more" onclick="alert('กำลังโหลดข่าวสารเพิ่มเติม...')">โหลดข่าวสารเพิ่มเติม</button>
-            </div>
-        </div>
-    </section>
+    </main>
 
     <footer>
-        <div class="footer-container">
-            <div>
-                <h3 style="font-family: var(--font-head); margin-bottom: 5px;">มูลนิธิแสง-ไซ้กี เหตระกูล</h3>
-                <p style="color: #a1a1a6;">Saeng-Saikee Hetrakul Foundation</p>
-            </div>
-            <div>
-                <a href="index.html" style="margin-right: 20px;">หน้าหลัก</a>
-                <a href="donate.html" style="color: var(--accent-color); font-weight: 600;">ร่วมบริจาค</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 มูลนิธิแสง-ไซ้กี เหตระกูล (Saeng-Saikee Hetrakul Foundation). All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2026 มูลนิธิแสง-ไซ้กี เหตระกูล. สงวนลิขสิทธิ์.</p>
         </div>
     </footer>
 
-    <script>
-        function filterCategory(btn, category) {
-            // Update active button style
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            // Filter news cards
-            const cards = document.querySelectorAll('.news-card');
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
 </body>
 </html>
