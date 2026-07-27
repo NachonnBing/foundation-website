@@ -3,263 +3,348 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ร่วมบริจาค | มูลนิธิแสง-ไซ้กี เหตระกูล</title>
+    <title>ร่วมบริจาคสมทบทุน | มูลนิธิแสง-ไซ้กี เหตระกูล</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --accent-color: #ee047c;
-            --accent-hover: #c90368;
-            --accent-light: #fde6f2;
-            --primary-dark: #1c1c1e;
-            --bg-light: #f8f9fa;
-            --border-color: #e5e5e7;
+            --brand-primary: #ee047c;
+            --brand-hover: #c90368;
+            --brand-light: #fde6f2;
+            --dark-main: #1c1c1e;
+            --bg-gray: #f4f5f7;
+            --bg-white: #ffffff;
+            --border-color: #d1d1d6;
             --text-main: #2d2d2d;
             --text-muted: #636366;
             --font-head: 'Prompt', sans-serif;
             --font-body: 'Sarabun', sans-serif;
+            --shadow-card: 0 10px 30px rgba(0,0,0,0.08);
+            --radius-md: 12px;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: var(--font-body); color: var(--text-main); background-color: var(--bg-light); line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
+        body { font-family: var(--font-body); color: var(--text-main); background-color: var(--bg-gray); line-height: 1.6; }
 
-        /* Header */
-        header {
-            background: #ffffff;
-            border-bottom: 3px solid var(--accent-color);
-            padding: 15px 5%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        /* Minimal Header */
+        header.donate-header {
+            background: var(--bg-white);
+            border-bottom: 2px solid var(--border-color);
+            padding: 16px 5%;
         }
-        .header-container {
-            max-width: 1200px;
+        .header-wrap {
+            max-width: 1100px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .brand-logo { display: flex; align-items: center; gap: 12px; }
+        .brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
         .logo-badge {
-            background-color: var(--accent-color);
+            background: var(--brand-primary);
             color: #fff;
             font-family: var(--font-head);
             font-weight: 700;
-            padding: 8px 12px;
-            border-radius: 4px;
+            padding: 6px 12px;
+            border-radius: 6px;
         }
-        .title-th { font-family: var(--font-head); font-weight: 700; font-size: 1.2rem; color: var(--primary-dark); }
-        .back-link { font-family: var(--font-head); color: var(--accent-color); font-weight: 600; }
+        .brand-title { font-family: var(--font-head); font-weight: 700; color: var(--dark-main); font-size: 1.1rem; }
+        .back-home { font-family: var(--font-head); font-size: 0.9rem; color: var(--brand-primary); text-decoration: none; font-weight: 500; }
 
-        /* Main Form Container */
-        .donate-wrapper {
-            max-width: 1000px;
+        /* Main Donation Layout */
+        .donate-container {
+            max-width: 1100px;
             margin: 40px auto;
-            padding: 0 20px;
+            padding: 0 4%;
             display: grid;
             grid-template-columns: 1fr 1.2fr;
-            gap: 40px;
+            gap: 35px;
         }
 
-        .donate-info h1 {
-            font-family: var(--font-head);
-            font-size: 2.2rem;
-            color: var(--primary-dark);
-            margin-bottom: 15px;
+        /* Left Column: Impact Callout */
+        .donate-info-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            height: fit-content;
         }
-        .donate-info p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 20px; }
+        .donate-info-img { width: 100%; height: 240px; object-fit: cover; }
+        .donate-info-body { padding: 28px; }
+        .donate-info-body h2 { font-family: var(--font-head); font-size: 1.6rem; color: var(--dark-main); margin-bottom: 12px; line-height: 1.3; }
+        .donate-info-body p { font-size: 0.98rem; color: var(--text-muted); margin-bottom: 20px; }
+        
         .tax-badge {
-            background: #e8f5e9;
-            color: #2e7d32;
+            background: var(--brand-light);
+            border: 1px solid var(--brand-primary);
+            color: var(--brand-primary);
             padding: 12px 16px;
-            border-radius: 6px;
+            border-radius: 8px;
+            font-family: var(--font-head);
+            font-size: 0.9rem;
             font-weight: 600;
-            font-size: 0.95rem;
-            display: inline-block;
-        }
-
-        /* Form Card */
-        .donate-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 35px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border: 1px solid var(--border-color);
-        }
-
-        /* Frequency Toggle */
-        .freq-toggle {
             display: flex;
-            background: var(--bg-light);
-            padding: 5px;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Right Column: Interactive Form */
+        .donate-form-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            padding: 32px;
+            box-shadow: var(--shadow-card);
+        }
+
+        /* Tab Switcher: Monthly vs One-time */
+        .freq-tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            background: var(--bg-gray);
+            padding: 6px;
             border-radius: 30px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         .freq-btn {
-            flex: 1;
-            padding: 12px;
             border: none;
             background: transparent;
             font-family: var(--font-head);
-            font-weight: 600;
             font-size: 1rem;
+            font-weight: 600;
+            padding: 12px;
             border-radius: 25px;
             cursor: pointer;
             color: var(--text-muted);
             transition: all 0.2s;
         }
         .freq-btn.active {
-            background: var(--accent-color);
+            background: var(--brand-primary);
             color: #ffffff;
-            box-shadow: 0 4px 10px rgba(238, 4, 124, 0.3);
+            box-shadow: 0 4px 12px rgba(238, 4, 124, 0.3);
         }
 
-        /* Amounts Grid */
+        /* Amount Selector Buttons */
+        .amount-label { font-family: var(--font-head); font-weight: 600; font-size: 0.95rem; margin-bottom: 12px; display: block; color: var(--dark-main); }
         .amount-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 25px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
         .amount-btn {
-            padding: 14px;
             border: 2px solid var(--border-color);
-            background: #ffffff;
-            border-radius: 8px;
+            background: #fff;
             font-family: var(--font-head);
-            font-weight: 600;
             font-size: 1.1rem;
+            font-weight: 600;
+            padding: 14px 10px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: all 0.2s;
             text-align: center;
+            transition: all 0.2s;
         }
         .amount-btn.active, .amount-btn:hover {
-            border-color: var(--accent-color);
-            background: var(--accent-light);
-            color: var(--accent-color);
+            border-color: var(--brand-primary);
+            color: var(--brand-primary);
+            background: var(--brand-light);
         }
 
-        /* Custom Input */
-        .form-group { margin-bottom: 20px; }
-        .form-group label {
-            display: block;
+        .custom-amount-input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
             font-family: var(--font-head);
-            font-weight: 500;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            outline: none;
         }
+        .custom-amount-input:focus { border-color: var(--brand-primary); }
+
+        /* Impact Text Box based on Amount */
+        .impact-box {
+            background: #fff8fc;
+            border-left: 4px solid var(--brand-primary);
+            padding: 14px 18px;
+            font-size: 0.92rem;
+            color: var(--dark-main);
+            margin-bottom: 25px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Donor Info Inputs */
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-family: var(--font-head); font-size: 0.88rem; font-weight: 600; margin-bottom: 6px; color: var(--dark-main); }
         .form-control {
             width: 100%;
-            padding: 12px 16px;
+            padding: 12px 14px;
             border: 1px solid var(--border-color);
-            border-radius: 6px;
-            font-size: 1rem;
+            border-radius: 8px;
             font-family: var(--font-body);
-        }
-        .form-control:focus {
+            font-size: 0.95rem;
             outline: none;
-            border-color: var(--accent-color);
         }
+        .form-control:focus { border-color: var(--brand-primary); }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+
+        /* Payment Method Options */
+        .payment-methods { margin-top: 25px; margin-bottom: 25px; }
+        .payment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .payment-btn {
+            border: 1px solid var(--border-color);
+            padding: 12px 8px;
+            border-radius: 8px;
+            text-align: center;
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            background: #fff;
+        }
+        .payment-btn.active { border-color: var(--brand-primary); background: var(--brand-light); color: var(--brand-primary); }
 
         /* Submit Button */
-        .btn-submit {
+        .btn-submit-donate {
             width: 100%;
-            background: var(--accent-color);
+            background: var(--brand-primary);
             color: #ffffff;
             border: none;
+            font-family: var(--font-head);
+            font-size: 1.15rem;
+            font-weight: 700;
             padding: 16px;
             border-radius: 30px;
-            font-family: var(--font-head);
-            font-size: 1.2rem;
-            font-weight: 700;
             cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
-            margin-top: 10px;
+            box-shadow: 0 6px 18px rgba(238, 4, 124, 0.35);
+            transition: background 0.2s;
         }
-        .btn-submit:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-        }
+        .btn-submit-donate:hover { background: var(--brand-hover); }
 
-        @media (max-width: 800px) {
-            .donate-wrapper { grid-template-columns: 1fr; }
+        @media (max-width: 850px) {
+            .donate-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-container">
+    <header class="donate-header">
+        <div class="header-wrap">
             <a href="index.html" class="brand-logo">
-                <div class="logo-badge">SHF</div>
-                <span class="title-th">มูลนิธิแสง-ไซ้กี เหตระกูล</span>
+                <span class="logo-badge">SHF</span>
+                <span class="brand-title">มูลนิธิแสง-ไซ้กี เหตระกูล</span>
             </a>
-            <a href="index.html" class="back-link">&larr; กลับหน้าหลัก</a>
+            <a href="index.html" class="back-home">&larr; กลับสู่หน้าหลัก</a>
         </div>
     </header>
 
-    <div class="donate-wrapper">
-        <div class="donate-info">
-            <h1>ร่วมบริจาคเพื่อสร้างโอกาสทางสังคม</h1>
-            <p>ทุกๆ การบริจาคของท่าน จะถูกนำไปใช้ในโครงการออกหน่วยแพทย์เคลื่อนที่ การมอบทุนการศึกษา และช่วยเหลือผู้ประสบภัยพิบัติต่างๆ โดยตรง</p>
-            <div class="tax-badge">
-                ✓ เงินบริจาคสามารถนำไปลดหย่อนภาษีได้ตามกฎหมาย
+    <main class="donate-container">
+
+        <div class="donate-info-card">
+            <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80" class="donate-info-img" alt="การออกหน่วยแพทย์">
+            <div class="donate-info-body">
+                <h2>ร่วมส่งต่อโอกาสและรอยยิ้ม ให้กับเด็กและผู้ยากไร้</h2>
+                <p>ทุกการบริจาคของคุณจะถูกนำไปจัดซื้อยารักษาโรค เครื่องมือทางการแพทย์ และมอบเป็นทุนการศึกษาแก่เยาวชนในพื้นที่ทุรกันดารทั่วประเทศไทย</p>
+                
+                <div class="tax-badge">
+                    <span>🧾</span>
+                    <span>การบริจาคสามารถนำไปลดหย่อนภาษีได้ตามกฎหมาย</span>
+                </div>
             </div>
         </div>
 
-        <div class="donate-card">
-            <div class="freq-toggle">
-                <button class="freq-btn active" onclick="setFreq(this)">บริจาคครั้งเดียว</button>
-                <button class="freq-btn" onclick="setFreq(this)">บริจายรายเดือน</button>
+        <div class="donate-form-card">
+            
+            <div class="freq-tabs">
+                <button class="freq-btn active" onclick="setFreq('monthly')">บริจาครายเดือน</button>
+                <button class="freq-btn" onclick="setFreq('once')">บริจาคครั้งเดียว</button>
             </div>
 
-            <label style="font-family: var(--font-head); font-weight: 500; display: block; margin-bottom: 10px;">เลือกจำนวนเงิน (บาท)</label>
+            <span class="amount-label">เลือกจำนวนเงินบริจาค (บาท)</span>
             <div class="amount-grid">
-                <button class="amount-btn" onclick="setAmount(this)">500</button>
-                <button class="amount-btn active" onclick="setAmount(this)">1,000</button>
-                <button class="amount-btn" onclick="setAmount(this)">2,500</button>
+                <button class="amount-btn" onclick="setAmount(500, this)">฿500</button>
+                <button class="amount-btn active" onclick="setAmount(1000, this)">฿1,000</button>
+                <button class="amount-btn" onclick="setAmount(2500, this)">฿2,500</button>
             </div>
 
-            <form onsubmit="alert('ขอบคุณสำหรับการร่วมบริจาคสมทบทุนมูลนิธิแสง-ไซ้กี เหตระกูล'); return false;">
-                <div class="form-group">
-                    <label>ระบุจำนวนเงินเอง (บาท)</label>
-                    <input type="number" class="form-control" id="custom-amount" value="1000">
+            <input type="number" id="customAmount" class="custom-amount-input" placeholder="หรือระบุจำนวนเงินเอง (บาท)" value="1000">
+
+            <div class="impact-box" id="impactBox">
+                💡 <strong>เงิน 1,000 บาทของคุณ:</strong> สามารถจัดซื้อชุดเวชภัณฑ์และตรวจรักษาโรคพื้นฐานให้กับผู้ป่วยยากไร้ได้ถึง 5 คน
+            </div>
+
+            <form onsubmit="handleDonate(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>ชื่อจริง *</label>
+                        <input type="text" class="form-control" required placeholder="สมชาย">
+                    </div>
+                    <div class="form-group">
+                        <label>นามสกุล *</label>
+                        <input type="text" class="form-control" required placeholder="ใจดี">
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label>ชื่อ-นามสกุล ผู้บริจาค</label>
-                    <input type="text" class="form-control" placeholder="สมชาย ใจดี" required>
+                    <label>อีเมล *</label>
+                    <input type="email" class="form-control" required placeholder="example@email.com">
                 </div>
 
                 <div class="form-group">
-                    <label>อีเมล (สำหรับรับใบเสร็จ)</label>
-                    <input type="email" class="form-control" placeholder="example@email.com" required>
+                    <label>เบอร์โทรศัพท์ *</label>
+                    <input type="tel" class="form-control" required placeholder="0812345678">
                 </div>
 
-                <div class="form-group">
-                    <label>ช่องทางการชำระเงิน</label>
-                    <select class="form-control">
-                        <option>โอนผ่านบัญชีธนาคาร (Bank Transfer)</option>
-                        <option>สแกน QR Code (PromptPay)</option>
-                        <option>บัตรเครดิต / เดบิต (Credit / Debit Card)</option>
-                    </select>
+                <span class="amount-label" style="margin-top: 15px;">ช่องทางการชำระเงิน</span>
+                <div class="payment-methods">
+                    <div class="payment-grid">
+                        <div class="payment-btn active" onclick="setPayment('qr', this)">PromptPay QR</div>
+                        <div class="payment-btn" onclick="setPayment('card', this)">บัตรเครดิต/เดบิต</div>
+                        <div class="payment-btn" onclick="setPayment('bank', this)">โอนผ่านธนาคาร</div>
+                    </div>
                 </div>
 
-                <button type="submit" class="btn-submit">ดำเนินการบริจาค</button>
+                <button type="submit" class="btn-submit-donate">ดำเนินการบริจาค ฿<span id="btnAmount">1,000</span></button>
             </form>
         </div>
-    </div>
+
+    </main>
 
     <script>
-        function setFreq(btn) {
+        function setAmount(amt, btn) {
+            document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('customAmount').value = amt;
+            document.getElementById('btnAmount').innerText = amt.toLocaleString();
+            
+            // Impact description update
+            const impactBox = document.getElementById('impactBox');
+            if (amt <= 500) {
+                impactBox.innerHTML = "💡 <strong>เงิน 500 บาทของคุณ:</strong> มอบชุดยาและแว่นสายตาให้ผู้สูงอายุในชนบท 2 ท่าน";
+            } else if (amt <= 1000) {
+                impactBox.innerHTML = "💡 <strong>เงิน 1,000 บาทของคุณ:</strong> ช่วยจัดซื้อชุดเวชภัณฑ์และตรวจรักษาผู้ป่วยยากไร้ได้ 5 คน";
+            } else {
+                impactBox.innerHTML = "💡 <strong>เงิน 2,500 บาทของคุณ:</strong> สมทบทุนการศึกษาให้เด็กนักเรียนขาดแคลนได้เต็ม 1 เทอม";
+            }
+        }
+
+        function setFreq(type) {
             document.querySelectorAll('.freq-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function setPayment(type, btn) {
+            document.querySelectorAll('.payment-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
         }
 
-        function setAmount(btn) {
-            document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            document.getElementById('custom-amount').value = btn.innerText.replace(',', '');
+        function handleDonate(e) {
+            e.preventDefault();
+            alert("ขอบคุณสำหรับการสมทบทุนบริจาคแก่ มูลนิธิแสง-ไซ้กี เหตระกูล!");
         }
     </script>
 </body>
