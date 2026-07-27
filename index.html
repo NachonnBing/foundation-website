@@ -4,205 +4,1173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>มูลนิธิแสง-ไซ้กี เหตระกูล | Saeng-Saikee Hetrakul Foundation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* ==========================================
+           1. CORE VARIABLES & RESETS
+           ========================================== */
         :root {
             --accent-color: #ee047c;
-            --text-dark: #333333;
+            --accent-hover: #c90368;
+            --accent-light: #fde6f2;
+            --primary-dark: #1c1c1e;
+            --secondary-dark: #2c2c2e;
             --bg-light: #f8f9fa;
-        }
-        
-        body {
-            font-family: 'Prompt', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text-dark);
-            line-height: 1.6;
+            --bg-white: #ffffff;
+            --border-color: #e5e5e7;
+            --text-main: #2d2d2d;
+            --text-muted: #636366;
+            --font-head: 'Prompt', sans-serif;
+            --font-body: 'Sarabun', sans-serif;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.1);
+            --shadow-lg: 0 16px 32px rgba(0,0,0,0.15);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
         }
 
-        /* Navbar */
-        header {
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-main);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* ==========================================
+           2. TOP UTILITY BAR
+           ========================================== */
+        .utility-bar {
+            background-color: #f2f2f2;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .utility-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .utility-links a {
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .utility-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .lang-switch {
+            font-weight: 600;
+        }
+
+        .lang-switch a {
+            color: var(--text-muted);
+            padding: 0 4px;
+        }
+
+        .lang-switch a.active {
+            color: var(--accent-color);
+        }
+
+        /* ==========================================
+           3. MAIN NAVIGATION HEADER
+           ========================================== */
+        header.main-header {
+            background: var(--bg-white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            background-color: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--accent-color);
-            text-decoration: none;
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
         }
 
-        nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            margin: 0 15px;
-            font-weight: 400;
-            transition: color 0.3s ease;
+        .brand-logo .logo-badge {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            font-family: var(--font-head);
+            font-weight: 700;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 1.3rem;
+            letter-spacing: 1px;
         }
 
-        nav a:hover {
+        .brand-logo .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-logo .title-th {
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            line-height: 1.2;
+        }
+
+        .brand-logo .title-en {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        nav.nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        nav.nav-menu a {
+            font-family: var(--font-head);
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--primary-dark);
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        nav.nav-menu a:not(.btn-donate):hover {
             color: var(--accent-color);
         }
 
         .btn-donate {
             background-color: var(--accent-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+            color: #ffffff !important;
+            font-family: var(--font-head);
             font-weight: 600;
-            text-transform: uppercase;
+            padding: 10px 24px;
+            border-radius: 25px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 14px rgba(238, 4, 124, 0.3);
+            display: inline-block;
+            border: none;
+            cursor: pointer;
         }
-        
+
         .btn-donate:hover {
-            background-color: #c90368;
-            color: white;
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(238, 4, 124, 0.4);
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
-            height: 70vh;
-            display: flex;
+        /* Mobile Hamburger Menu */
+        .menu-toggle {
+            display: none;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
+            gap: 5px;
+            cursor: pointer;
         }
 
-        .hero h1 {
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-dark);
+            border-radius: 2px;
+        }
+
+        /* ==========================================
+           4. HERO SPOTLIGHT BANNER
+           ========================================== */
+        .hero-spotlight {
+            position: relative;
+            background: linear-gradient(90deg, rgba(28,28,30,0.92) 0%, rgba(28,28,30,0.55) 60%, rgba(28,28,30,0.2) 100%), 
+                        url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            padding: 80px 5%;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin-left: max(0px, calc((100vw - 1400px) / 2));
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 5px 14px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-head);
             font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            opacity: 0.95;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: #ffffff;
+            color: var(--primary-dark);
+            font-family: var(--font-head);
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 25px;
+            transition: all 0.2s;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-secondary:hover {
+            background-color: transparent;
+            color: #ffffff;
+        }
+
+        /* ==========================================
+           5. IMPACT NUMBERS STRIP
+           ========================================== */
+        .impact-strip {
+            background-color: var(--primary-dark);
+            color: #ffffff;
+            padding: 50px 5%;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .impact-grid {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .impact-item {
+            padding: 15px;
+        }
+
+        .impact-item .number {
+            font-family: var(--font-head);
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .impact-item .label {
+            font-size: 1rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+
+        /* ==========================================
+           6. SECTION HEADERS & GENERAL SECTIONS
+           ========================================== */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .bg-light {
+            background-color: var(--bg-light);
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 18px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-head);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            position: relative;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+
+        .section-header .see-all {
+            font-family: var(--font-head);
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s;
+        }
+
+        .section-header .see-all:hover {
+            gap: 10px;
+        }
+
+        /* ==========================================
+           7. ABOUT SECTION (#about)
+           ========================================== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: var(--font-head);
+            font-size: 1.8rem;
+            color: var(--primary-dark);
             margin-bottom: 20px;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 30px;
+        .about-text p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.8;
         }
 
-        /* Content Section */
-        .section-title {
-            text-align: center;
-            margin: 50px 0 30px;
-            font-size: 2rem;
-            color: var(--text-dark);
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: var(--accent-color);
-            margin: 10px auto;
-        }
-
-        .grid-container {
+        .about-features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 0 5%;
-            margin-bottom: 50px;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
         }
 
-        .card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        .feature-box {
+            background: var(--bg-light);
+            padding: 20px;
+            border-left: 4px solid var(--accent-color);
+            border-radius: var(--radius-sm);
+        }
+
+        .feature-box h4 {
+            font-family: var(--font-head);
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+        }
+
+        .feature-box p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .about-image img {
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ==========================================
+           8. MISSIONS CARDS SECTION (#missions)
+           ========================================== */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 35px;
+        }
+
+        .card-item {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
             overflow: hidden;
-            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
+        .card-item:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
         }
 
-        .card img {
+        .card-image {
+            height: 230px;
             width: 100%;
-            height: 200px;
             object-fit: cover;
         }
 
-        .card-content {
+        .card-body {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-category {
+            color: var(--accent-color);
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .card-title {
+            font-family: var(--font-head);
+            font-size: 1.35rem;
+            font-weight: 600;
+            line-height: 1.4;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .card-link {
+            font-family: var(--font-head);
+            font-weight: 600;
+            color: var(--accent-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        /* ==========================================
+           9. NEWS SECTION (#news)
+           ========================================== */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .news-card:hover {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .news-card img {
+            height: 190px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .news-content {
             padding: 20px;
         }
 
-        .card-content h3 {
-            color: var(--accent-color);
-            margin-top: 0;
+        .news-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
         }
 
-        /* Footer */
-        footer {
-            background-color: #222;
-            color: white;
+        .news-title {
+            font-family: var(--font-head);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .news-excerpt {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        /* ==========================================
+           10. TAKE ACTION / PARTNERSHIP (#take-action)
+           ========================================== */
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .action-card {
+            background: var(--bg-white);
+            padding: 35px 25px;
+            border-radius: var(--radius-md);
+            border-top: 5px solid var(--accent-color);
+            box-shadow: var(--shadow-sm);
             text-align: center;
-            padding: 30px 20px;
-            margin-top: auto;
+        }
+
+        .action-card h3 {
+            font-family: var(--font-head);
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .action-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            font-family: var(--font-head);
+            font-weight: 600;
+            padding: 10px 22px;
+            border-radius: 25px;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
+        }
+
+        /* ==========================================
+           11. DONATION BANNER & SECTION (#donate)
+           ========================================== */
+        .cta-banner {
+            background: linear-gradient(135deg, #ee047c 0%, #a80055 100%);
+            color: #ffffff;
+            padding: 80px 5%;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-family: var(--font-head);
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .btn-white {
+            background-color: #ffffff;
+            color: var(--accent-color);
+            font-family: var(--font-head);
+            font-weight: 700;
+            padding: 16px 40px;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-white:hover {
+            background-color: var(--primary-dark);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================
+           12. FOOTER
+           ========================================== */
+        footer {
+            background-color: var(--primary-dark);
+            color: #ffffff;
+            padding-top: 70px;
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5% 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-head);
+            font-size: 1.15rem;
+            color: var(--accent-color);
+            margin-bottom: 22px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #cccccc;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #8e8e93;
+            font-size: 0.88rem;
+        }
+
+        .footer-legal a {
+            color: #8e8e93;
+            margin-left: 20px;
+        }
+
+        .footer-legal a:hover {
+            color: #ffffff;
+        }
+
+        /* ==========================================
+           13. INTERACTIVE MODALS (DONATE & NEWS)
+           ========================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-box {
+            background: var(--bg-white);
+            width: 90%;
+            max-width: 600px;
+            border-radius: var(--radius-lg);
+            padding: 35px;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .modal-title {
+            font-family: var(--font-head);
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        .donate-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 25px 0;
+        }
+
+        .donate-amount-btn {
+            padding: 12px;
+            border: 2px solid var(--border-color);
+            background: white;
+            border-radius: var(--radius-md);
+            font-family: var(--font-head);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .donate-amount-btn.active, .donate-amount-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            background: var(--accent-light);
+        }
+
+        .bank-details {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin-top: 20px;
+        }
+
+        .bank-details h4 {
+            font-family: var(--font-head);
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 900px) {
+            nav.nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-white);
+                flex-direction: column;
+                padding: 20px 5%;
+                box-shadow: var(--shadow-md);
+                gap: 18px;
+            }
+
+            nav.nav-menu.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .donate-options {
+                grid-template-columns: 1fr 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="#" class="logo">มูลนิธิแสง-ไซ้กี เหตระกูล</a>
-        <nav>
-            <a href="#">เกี่ยวกับเรา</a>
-            <a href="#">สิ่งที่เราทำ</a>
-            <a href="#">ข่าวสาร</a>
-            <a href="#" class="btn-donate">บริจาค</a>
-        </nav>
+    <div class="utility-bar">
+        <div class="utility-links">
+            <a href="#about">เกี่ยวกับเรา</a>
+            <a href="#contact">ติดต่อเรา</a>
+            <a href="#faq">คำถามที่พบบ่อย</a>
+        </div>
+        <div class="lang-switch">
+            <a href="#" class="active">ไทย</a> | <a href="#">EN</a>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">
+                <div class="logo-badge">SHF</div>
+                <div class="logo-text">
+                    <span class="title-th">มูลนิธิแสง-ไซ้กี เหตระกูล</span>
+                    <span class="title-en">Saeng-Saikee Hetrakul Foundation</span>
+                </div>
+            </a>
+            
+            <div class="menu-toggle" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#about">เกี่ยวกับมูลนิธิ</a>
+                <a href="#missions">สิ่งที่เราทำ</a>
+                <a href="#news">ข่าวสารและเรื่องราว</a>
+                <a href="#take-action">ร่วมมือกับเรา</a>
+                <button class="btn-donate" onclick="openDonateModal()">บริจาคตอนนี้</button>
+            </nav>
+        </div>
     </header>
 
-    <section class="hero">
-        <h1>เพื่อคุณภาพชีวิตที่ดีขึ้นของคนไทย</h1>
-        <p>มูลนิธิแสง-ไซ้กี เหตระกูล มุ่งมั่นทำงานเพื่อช่วยเหลือผู้ด้อยโอกาส ยกระดับสาธารณสุข และสนับสนุนการศึกษาทั่วประเทศ</p>
-        <a href="#" class="btn-donate">ร่วมเป็นส่วนหนึ่งกับเรา</a>
+    <section class="hero-spotlight">
+        <div class="hero-content">
+            <span class="hero-tag">โครงการเด่นประจำปี</span>
+            <h1>เพื่อคุณภาพชีวิตที่ดีขึ้นของประชาชนในพื้นที่ห่างไกล</h1>
+            <p>ร่วมส่งต่อโอกาส ยกระดับสาธารณสุข และสร้างอนาคตที่มั่นคงให้กับเด็ก เยาวชน และผู้ด้อยโอกาสทั่วประเทศไทย</p>
+            <div class="hero-actions">
+                <button class="btn-donate" onclick="openDonateModal()">ร่วมเป็นส่วนหนึ่งของการให้</button>
+                <a href="#about" class="btn-secondary">ทำความรู้จักมูลนิธิ</a>
+            </div>
+        </div>
     </section>
 
-    <main>
-        <h2 class="section-title">งานของเรา</h2>
-        
-        <div class="grid-container">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="หน่วยแพทย์เคลื่อนที่">
-                <div class="card-content">
-                    <h3>หน่วยแพทย์เคลื่อนที่</h3>
-                    <p>ออกหน่วยแพทย์เพื่อให้บริการตรวจรักษาประชาชนในพื้นที่ห่างไกล ขาดแคลนทุนทรัพย์ ให้เข้าถึงการรักษาพยาบาลโดยไม่เสียค่าใช้จ่าย</p>
-                </div>
+    <section class="impact-strip">
+        <div class="impact-grid">
+            <div class="impact-item">
+                <div class="number">40+</div>
+                <div class="label">ปีของการดำเนินงานเพื่อสังคม</div>
             </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="การศึกษา">
-                <div class="card-content">
-                    <h3>สนับสนุนการศึกษา</h3>
-                    <p>มอบทุนการศึกษาและอุปกรณ์การเรียนรู้ให้แก่เด็กนักเรียนที่ยากไร้ เพื่อสร้างรากฐานที่มั่นคงสำหรับอนาคต</p>
-                </div>
+            <div class="impact-item">
+                <div class="number">100,000+</div>
+                <div class="label">ประชาชนที่ได้รับการตรวจรักษา</div>
             </div>
+            <div class="impact-item">
+                <div class="number">77</div>
+                <div class="label">จังหวัดทั่วประเทศที่เข้าถึง</div>
+            </div>
+            <div class="impact-item">
+                <div class="number">10,000+</div>
+                <div class="label">ทุนการศึกษาที่มอบให้เยาวชน</div>
+            </div>
+        </div>
+    </section>
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1593113580456-f6c4be09f7a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="บรรเทาสาธารณภัย">
-                <div class="card-content">
-                    <h3>บรรเทาสาธารณภัย</h3>
-                    <p>ลงพื้นที่ช่วยเหลือและมอบถุงยังชีพให้แก่ผู้ประสบภัยพิบัติต่างๆ ทั่วประเทศอย่างทันท่วงที</p>
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>มุ่งมั่นสืบสานเจตนารมณ์ในการช่วยเหลือสังคมไทย</h3>
+                    <p>มูลนิธิแสง-ไซ้กี เหตระกูล ก่อตั้งขึ้นด้วยความมุ่งมั่นที่จะยกระดับคุณภาพชีวิตของประชาชนในพื้นที่ห่างไกล ขาดแคลน และทุรกันดาร โดยให้ความสำคัญกับการออกหน่วยแพทย์เคลื่อนที่ การสนับสนุนทุนการศึกษา และการช่วยเหลือบรรเทาสาธารณภัย</p>
+                    <div class="about-features">
+                        <div class="feature-box">
+                            <h4>วิสัยทัศน์</h4>
+                            <p>สร้างสังคมไทยที่มีสุขภาวะที่ดี และเด็กทุกคนได้รับการศึกษาอย่างเท่าเทียม</p>
+                        </div>
+                        <div class="feature-box">
+                            <h4>พันธกิจ</h4>
+                            <p>ลงพื้นที่ช่วยเหลือผู้ขาดแคลนทันทีโดยไม่มีข้อจำกัดทางเชื้อชาติหรือศาสนา</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="เกี่ยวกับมูลนิธิแสง-ไซ้กี เหตระกูล">
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 มูลนิธิแสง-ไซ้กี เหตระกูล (Saeng-Saikee Hetrakul Foundation). All rights reserved.</p>
+    <section class="section-padding bg-light" id="missions">
+        <div class="container">
+            <div class="section-header">
+                <h2>สิ่งที่เราทำ</h2>
+                <a href="#donate" class="see-all">ร่วมสนับสนุนภารกิจ &rarr;</a>
+            </div>
+
+            <div class="cards-grid">
+                <article class="card-item">
+                    <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80" alt="หน่วยแพทย์เคลื่อนที่" class="card-image">
+                    <div class="card-body">
+                        <span class="card-category">สาธารณสุข</span>
+                        <h3 class="card-title">หน่วยแพทย์เคลื่อนที่</h3>
+                        <p class="card-text">ตรวจรักษาพยาบาล แจกจ่ายยา และให้บริการทางด้านสาธารณสุขแก่ประชาชนในท้องถิ่นทุรกันดารโดยไม่เสียค่าใช้จ่าย</p>
+                        <span class="card-link" onclick="openDonateModal()">ร่วมสนับสนุนโครงการ &rarr;</span>
+                    </div>
+                </article>
+
+                <article class="card-item">
+                    <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80" alt="ทุนการศึกษา" class="card-image">
+                    <div class="card-body">
+                        <span class="card-category">การศึกษา</span>
+                        <h3 class="card-title">สนับสนุนทุนการศึกษา</h3>
+                        <p class="card-text">มอบโอกาสทางการศึกษา อุปกรณ์การเรียน และทุนต่อเนื่องแก่เด็กนักเรียนที่มีความประพฤติดีแต่ขาดแคลนทุนทรัพย์</p>
+                        <span class="card-link" onclick="openDonateModal()">มอบทุนการศึกษา &rarr;</span>
+                    </div>
+                </article>
+
+                <article class="card-item">
+                    <img src="https://images.unsplash.com/photo-1593113580456-f6c4be09f7a6?auto=format&fit=crop&w=800&q=80" alt="บรรเทาสาธารณภัย" class="card-image">
+                    <div class="card-body">
+                        <span class="card-category">ช่วยเหลือเร่งด่วน</span>
+                        <h3 class="card-title">บรรเทาสาธารณภัย</h3>
+                        <p class="card-text">ลงพื้นที่มอบถุงยังชีพ อุปกรณ์ดำรงชีพ และการช่วยเหลือฟื้นฟูแก่ผู้ประสบภัยอุทกภัยและอัคคีภัยอย่างทันท่วงที</p>
+                        <span class="card-link" onclick="openDonateModal()">ร่วมบริจาคช่วยภัยพิบัติ &rarr;</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="news">
+        <div class="container">
+            <div class="section-header">
+                <h2>ข่าวสารและเรื่องราว</h2>
+                <a href="#news" class="see-all">อ่านข่าวทั้งหมด &rarr;</a>
+            </div>
+
+            <div class="news-grid">
+                <article class="news-card">
+                    <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80" alt="หน่วยแพทย์เคลื่อนที่ลงพื้นที่">
+                    <div class="news-content">
+                        <div class="news-date">15 มกราคม 2026</div>
+                        <h3 class="news-title">มูลนิธิฯ ลงพื้นที่ออกหน่วยแพทย์เคลื่อนที่ ณ จังหวัดเชียงราย</h3>
+                        <p class="news-excerpt">ให้บริการตรวจสุขภาพประชาชนกว่า 1,200 คน พร้อมมอบเครื่องหนาวแก่ชาวบ้านบนพื้นที่สูง...</p>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="มอบทุนการศึกษาประจำปี">
+                    <div class="news-content">
+                        <div class="news-date">10 ธันวาคม 2025</div>
+                        <h3 class="news-title">พิธีมอบทุนการศึกษาประจําปี แก่เยาวชนในเขตภาคตะวันออกเฉียงเหนือ</h3>
+                        <p class="news-excerpt">มอบทุนการศึกษารวมกว่า 500 ทุน เพื่อสร้างโอกาสทางการเรียนรู้ให้กับเยาวชนที่ขาดแคลน...</p>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80" alt="ส่งมอบถุงยังชีพ">
+                    <div class="news-content">
+                        <div class="news-date">28 พฤศจิกายน 2025</div>
+                        <h3 class="news-title">ส่งมอบเครื่องอุปโภคบริโภคช่วยเหลือผู้ประสบอุทกภัย</h3>
+                        <p class="news-excerpt">ทีมอาสาสมัครลงพื้นที่แจกจ่ายถุงยังชีพและน้ำดื่มสะอาดแก่ครอบครัวที่ได้รับผลกระทบ...</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light" id="take-action">
+        <div class="container">
+            <div class="section-header">
+                <h2>ร่วมมือกับเรา</h2>
+            </div>
+
+            <div class="action-grid">
+                <div class="action-card">
+                    <h3>บริจาคสมทบทุน</h3>
+                    <p>ทุกบาทของคุณมีคุณค่าในการเปลี่ยนชีวิตและช่วยเหลือผู้ยากไร้ให้ได้รับการรักษาพยาบาลและการศึกษา</p>
+                    <button class="btn-outline" onclick="openDonateModal()">บริจาคเงิน</button>
+                </div>
+
+                <div class="action-card">
+                    <h3>ร่วมเป็นอาสาสมัคร</h3>
+                    <p>สมัครเป็นอาสาสมัครร่วมลงพื้นที่กับหน่วยแพทย์เคลื่อนที่ หรือช่วยงานกิจกรรมของมูลนิธิ</p>
+                    <a href="#contact" class="btn-outline">สมัครอาสาสมัคร</a>
+                </div>
+
+                <div class="action-card">
+                    <h3>พันธมิตรองค์กร</h3>
+                    <p>ร่วมมือในฐานะองค์กรพันธมิตรเพื่อดำเนินกิจกรรม CSR และสร้างผลกระทบเชิงบวกให้สังคมร่วมกัน</p>
+                    <a href="#contact" class="btn-outline">ติดต่อความร่วมมือ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner" id="donate">
+        <div class="cta-content">
+            <h2>การบริจาคของคุณช่วยเปลี่ยนแปลงชีวิตได้</h2>
+            <p>ร่วมเป็นส่วนหนึ่งในการมอบโอกาส และสร้างการเปลี่ยนแปลงที่ยั่งยืนให้กับสังคมไทย</p>
+            <button class="btn-white" onclick="openDonateModal()">บริจาคทันที</button>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>เกี่ยวกับเรา</h4>
+                <ul>
+                    <li><a href="#about">ประวัติมูลนิธิ</a></li>
+                    <li><a href="#about">คณะกรรมการ</a></li>
+                    <li><a href="#about">วิสัยทัศน์และพันธกิจ</a></li>
+                    <li><a href="#news">รายงานประจำปี</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>งานของเรา</h4>
+                <ul>
+                    <li><a href="#missions">หน่วยแพทย์เคลื่อนที่</a></li>
+                    <li><a href="#missions">ทุนการศึกษา</a></li>
+                    <li><a href="#missions">ช่วยเหลือผู้ประสบภัย</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>ร่วมมือกับเรา</h4>
+                <ul>
+                    <li><a href="javascript:void(0)" onclick="openDonateModal()">บริจาคเงิน</a></li>
+                    <li><a href="#take-action">ร่วมเป็นอาสาสมัคร</a></li>
+                    <li><a href="#take-action">พันธมิตรองค์กร</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>ติดต่อมูลนิธิ</h4>
+                <ul>
+                    <li>มูลนิธิแสง-ไซ้กี เหตระกูล</li>
+                    <li>1/4 ถนนวิภาวดีรังสิต แขวงตลาดบางเขน เขตหลักสี่ กรุงเทพมหานคร 10210</li>
+                    <li>โทรศัพท์: 02-561-1456</li>
+                    <li>อีเมล: contact@saengsaikee.or.th</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 มูลนิธิแสง-ไซ้กี เหตระกูล (Saeng-Saikee Hetrakul Foundation). All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">นโยบายความเป็นส่วนตัว</a>
+                <a href="#">ข้อกำหนดการใช้งาน</a>
+            </div>
+        </div>
     </footer>
 
+    <div class="modal-overlay" id="donate-modal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeDonateModal()">&times;</button>
+            <h3 class="modal-title">ร่วมบริจาคสมทบทุน</h3>
+            <p>มูลนิธิแสง-ไซ้กี เหตระกูล ขอขอบพระคุณในน้ำใจและการสนับสนุนของท่าน</p>
+            
+            <div class="donate-options">
+                <button class="donate-amount-btn" onclick="selectAmount(this, 500)">500 บาท</button>
+                <button class="donate-amount-btn active" onclick="selectAmount(this, 1000)">1,000 บาท</button>
+                <button class="donate-amount-btn" onclick="selectAmount(this, 2500)">2,500 บาท</button>
+            </div>
+
+            <div class="bank-details">
+                <h4>ช่องทางการโอนเงินบัญชีธนาคาร</h4>
+                <p><strong>ชื่อบัญชี:</strong> มูลนิธิแสง-ไซ้กี เหตระกูล</p>
+                <p><strong>ธนาคาร:</strong> กรุงเทพ (Bangkok Bank)</p>
+                <p><strong>เลขที่บัญชี:</strong> 123-4-56789-0</p>
+                <p style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted);">* ใบเสร็จรับเงินจากการบริจาคสามารถนำไปลดหย่อนภาษีได้ตามกฎหมาย</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Modal Controllers
+        function openDonateModal() {
+            document.getElementById('donate-modal').classList.add('active');
+        }
+
+        function closeDonateModal() {
+            document.getElementById('donate-modal').classList.remove('active');
+        }
+
+        // Close Modal when clicking outside the box
+        window.onclick = function(event) {
+            const modal = document.getElementById('donate-modal');
+            if (event.target === modal) {
+                closeDonateModal();
+            }
+        }
+
+        // Amount Selection Switcher
+        function selectAmount(btn, amount) {
+            const buttons = document.querySelectorAll('.donate-amount-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+    </script>
 </body>
 </html>
