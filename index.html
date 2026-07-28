@@ -243,28 +243,30 @@
             gap: 28px;
         }
 
+        /* Navigation Links (Underline Removed) */
         .nav-link {
-            font-family: var(--font-head);
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.95rem;
+            text-decoration: none !important;
+            border-bottom: none !important; /* Removes border underline */
+            color: #2d2d2d;
             font-weight: 500;
-            font-size: 0.98rem;
-            color: var(--dark-main);
-            padding: 8px 4px;
-            position: relative;
+            transition: color 0.2s;
+            padding-bottom: 0 !important;
         }
 
-        .nav-link:hover, .nav-link.active {
-            color: var(--brand-primary);
+        .nav-link:hover, 
+        .nav-link.active {
+            color: #ee047c;
+            border-bottom: none !important; /* Prevents underline on active/hover */
+            text-decoration: none !important;
         }
 
+        /* Disables any pseudo-element line under links */
+        .nav-link::after,
         .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -18px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background-color: var(--brand-primary);
-            border-radius: var(--radius-full);
+            display: none !important;
+            content: none !important;
         }
 
         .btn-donate-nav {
