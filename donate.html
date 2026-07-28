@@ -62,15 +62,17 @@
             display: grid;
             grid-template-columns: 1fr 1.2fr;
             gap: 35px;
+            align-items: start; /* Crucial for sticky positioning to work */
         }
 
-        /* Left Column: Impact Callout */
+        /* Left Column: Impact Callout (Now Sticky) */
         .donate-info-card {
             background: var(--bg-white);
             border-radius: var(--radius-md);
             overflow: hidden;
             box-shadow: var(--shadow-card);
-            height: fit-content;
+            position: sticky;
+            top: 40px; /* Pins it 40px from the top of the screen */
         }
         .donate-info-img { width: 100%; height: 240px; object-fit: cover; }
         .donate-info-body { padding: 28px; }
@@ -99,9 +101,7 @@
             box-shadow: var(--shadow-card);
         }
 
-        /* =========================================================
-           NEW: SMOOTH TOGGLE SWITCH
-           ========================================================= */
+        /* Smooth Toggle Switch */
         .donate-toggle {
             display: flex;
             position: relative;
@@ -135,11 +135,12 @@
             box-shadow: 0 4px 12px rgba(238, 4, 124, 0.3);
         }
         
-        #monthly:checked ~ .toggle-slider { transform: translateX(0); }
-        #onetime:checked ~ .toggle-slider { transform: translateX(100%); }
-        #monthly:checked ~ label[for="monthly"],
-        #onetime:checked ~ label[for="onetime"] { color: #ffffff; }
-
+        /* Updated logic: Onetime is default (left), Monthly is right */
+        #onetime:checked ~ .toggle-slider { transform: translateX(0); }
+        #monthly:checked ~ .toggle-slider { transform: translateX(100%); }
+        
+        #onetime:checked ~ label[for="onetime"],
+        #monthly:checked ~ label[for="monthly"] { color: #ffffff; }
 
         /* Amount Selector Buttons */
         .amount-label { font-family: var(--font-head); font-weight: 600; font-size: 0.95rem; margin-bottom: 12px; display: block; color: var(--dark-main); }
@@ -207,9 +208,7 @@
 
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 
-        /* =========================================================
-           NEW: TAX INVOICE SECTION
-           ========================================================= */
+        /* Tax Invoice Section */
         .tax-section {
             background: var(--bg-gray);
             padding: 16px;
@@ -282,6 +281,7 @@
 
         @media (max-width: 850px) {
             .donate-container { grid-template-columns: 1fr; }
+            .donate-info-card { position: relative; top: 0; } /* Disables sticky on mobile for better UX */
         }
     </style>
 </head>
@@ -315,13 +315,13 @@
         <div class="donate-form-card">
             
             <div class="donate-toggle">
-                <input type="radio" id="monthly" name="donate-type" checked>
-                <input type="radio" id="onetime" name="donate-type">
+                <input type="radio" id="onetime" name="donate-type" checked>
+                <input type="radio" id="monthly" name="donate-type">
                 
                 <div class="toggle-slider"></div>
                 
-                <label for="monthly">บริจาครายเดือน</label>
                 <label for="onetime">บริจาคครั้งเดียว</label>
+                <label for="monthly">บริจาครายเดือน</label>
             </div>
 
             <span class="amount-label">เลือกจำนวนเงินบริจาค (บาท)</span>
@@ -401,7 +401,6 @@
     </main>
 
     <script>
-        // Set fixed amounts from buttons
         function setAmount(amt, btn) {
             document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
@@ -409,17 +408,15 @@
             const customInput = document.getElementById('customAmount');
             customInput.value = amt;
             
-            updateButtonAmount(); // Update UI
+            updateButtonAmount();
         }
 
-        // Live update the button value and impact text when user types in the custom field
         function updateButtonAmount() {
             const customInput = document.getElementById('customAmount');
             const amt = parseInt(customInput.value) || 0;
             
             document.getElementById('btnAmount').innerText = amt.toLocaleString();
             
-            // Impact description update
             const impactBox = document.getElementById('impactBox');
             if (amt <= 500) {
                 impactBox.innerHTML = "💡 <strong>เงิน " + amt.toLocaleString() + " บาทของคุณ:</strong> มอบชุดยาและแว่นสายตาให้ผู้สูงอายุในชนบท 2 ท่าน";
@@ -435,18 +432,15 @@
             btn.classList.add('active');
         }
 
-        // Toggle Tax Form smoothly
         const taxCheckbox = document.getElementById('request-tax');
         const taxForm = document.getElementById('tax-form-fields');
 
         taxCheckbox.addEventListener('change', function() {
             if (this.checked) {
                 taxForm.classList.add('open');
-                // Optional: Make inputs required when visible
                 taxForm.querySelectorAll('input:not([name="tax_taxpayer_id"]), textarea').forEach(el => el.required = true);
             } else {
                 taxForm.classList.remove('open');
-                // Remove required status if they hide it
                 taxForm.querySelectorAll('input, textarea').forEach(el => el.required = false);
             }
         });
