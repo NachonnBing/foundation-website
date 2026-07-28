@@ -62,17 +62,17 @@
             display: grid;
             grid-template-columns: 1fr 1.2fr;
             gap: 35px;
-            align-items: start; /* Crucial for sticky positioning to work */
+            align-items: start; /* Sticky positioning requirement */
         }
 
-        /* Left Column: Impact Callout (Now Sticky) */
+        /* Left Column: Impact Callout (Sticky Photo/Info) */
         .donate-info-card {
             background: var(--bg-white);
             border-radius: var(--radius-md);
             overflow: hidden;
             box-shadow: var(--shadow-card);
             position: sticky;
-            top: 40px; /* Pins it 40px from the top of the screen */
+            top: 40px;
         }
         .donate-info-img { width: 100%; height: 240px; object-fit: cover; }
         .donate-info-body { padding: 28px; }
@@ -135,7 +135,6 @@
             box-shadow: 0 4px 12px rgba(238, 4, 124, 0.3);
         }
         
-        /* Updated logic: Onetime is default (left), Monthly is right */
         #onetime:checked ~ .toggle-slider { transform: translateX(0); }
         #monthly:checked ~ .toggle-slider { transform: translateX(100%); }
         
@@ -180,7 +179,7 @@
         }
         .custom-amount-input:focus { border-color: var(--brand-primary); }
 
-        /* Impact Text Box based on Amount */
+        /* Impact Text Box */
         .impact-box {
             background: #fff8fc;
             border-left: 4px solid var(--brand-primary);
@@ -191,7 +190,7 @@
             border-radius: 0 8px 8px 0;
         }
 
-        /* Donor Info Inputs */
+        /* Form Inputs */
         .form-group { margin-bottom: 16px; }
         .form-group label { display: block; font-family: var(--font-head); font-size: 0.88rem; font-weight: 600; margin-bottom: 6px; color: var(--dark-main); }
         .form-control {
@@ -279,9 +278,89 @@
         }
         .btn-submit-donate:hover { background: var(--brand-hover); }
 
+        /* Site Footer */
+        footer.site-footer {
+            background: var(--bg-white);
+            border-top: 1px solid #e0e0e0;
+            margin-top: 80px;
+            padding-top: 50px;
+            font-family: var(--font-body);
+        }
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 4% 40px;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+            gap: 30px;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .footer-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 290px;
+        }
+        .footer-heading {
+            font-family: var(--font-head);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: var(--dark-main);
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: var(--brand-primary);
+        }
+        .footer-contact p {
+            font-style: normal;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+        .footer-bottom {
+            border-top: 1px solid #eee;
+            padding: 22px 4%;
+        }
+        .footer-bottom-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive Breakpoints */
         @media (max-width: 850px) {
             .donate-container { grid-template-columns: 1fr; }
-            .donate-info-card { position: relative; top: 0; } /* Disables sticky on mobile for better UX */
+            .donate-info-card { position: relative; top: 0; }
+            .footer-container { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 550px) {
+            .footer-container { grid-template-columns: 1fr; }
+            .footer-bottom-wrap {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -399,6 +478,53 @@
         </div>
 
     </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <span class="logo-badge">SHF</span>
+                    <span class="brand-title">มูลนิธิแสง-ไซ้กี เหตระกูล</span>
+                </div>
+                <p class="footer-desc">มุ่งมั่นส่งเสริมด้านสาธารณสุข ยกระดับคุณภาพชีวิต และมอบโอกาสทางการศึกษาแก่เยาวชนไทยทั่วประเทศอย่างต่อเนื่อง</p>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-heading">เมนูหลัก</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">หน้าแรก</a></li>
+                    <li><a href="about.html">เกี่ยวกับเรา</a></li>
+                    <li><a href="news.html">ข่าวสาร</a></li>
+                    <li><a href="donate.html">บริจาค</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-heading">ข้อมูลเพิ่มเติม</h3>
+                <ul class="footer-links">
+                    <li><a href="#">คณะกรรมการ</a></li>
+                    <li><a href="#">ประวัติมูลนิธิ</a></li>
+                    <li><a href="#">หน่วยแพทย์เคลื่อนที่</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-heading">ติดต่อเรา</h3>
+                <div class="footer-contact">
+                    <p>มูลนิธิแสง-ไซ้กี เหตระกูล</p>
+                    <p>1/4 อาคารเดลินิวส์ ถนนวิภาวดีรังสิต แขวงตลาดบางเขน เขตหลักสี่ กรุงเทพมหานคร 10210</p>
+                    <p>โทรศัพท์: 02-123-4567</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-wrap">
+                <p>© 2026 มูลนิธิแสง-ไซ้กี เหตระกูล. สงวนลิขสิทธิ์.</p>
+                <p>พัฒนาโครงสร้างด้วย HTML5 & CSS3 Clean Standard</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         function setAmount(amt, btn) {
