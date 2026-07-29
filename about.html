@@ -315,11 +315,155 @@
             font-family: var(--font-head);
             font-size: 1.3rem;
             color: var(--brand-primary);
+            margin-bottom: 16px;
+        }
+
+        .story-box ul {
+            list-style: none;
+        }
+
+        .story-box li {
+            position: relative;
+            padding-left: 24px;
             margin-bottom: 12px;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        .story-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--brand-primary);
+            font-weight: bold;
         }
 
         /* ==========================================================================
-           06. SITE FOOTER
+           06. STATS & IMPACT
+           ========================================================================== */
+        .stats-section {
+            background-color: var(--brand-lighter);
+            padding: 60px 0;
+            border-top: 1px solid var(--brand-light);
+            border-bottom: 1px solid var(--brand-light);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .stat-card {
+            background: var(--bg-white);
+            padding: 32px 20px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--brand-light);
+            text-align: center;
+            box-shadow: var(--shadow-xs);
+        }
+
+        .stat-num {
+            font-family: var(--font-head);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--brand-primary);
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+           07. BOARD OF DIRECTORS / EXECUTIVE TEAM
+           ========================================================================== */
+        .team-section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-head);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark-main);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-top: 8px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .team-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-img-wrap {
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            background-color: var(--bg-gray-alt);
+        }
+
+        .team-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .team-body {
+            padding: 24px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .team-name {
+            font-family: var(--font-head);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--dark-main);
+            margin-bottom: 6px;
+        }
+
+        .team-role {
+            font-size: 0.92rem;
+            color: var(--brand-primary);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        /* ==========================================================================
+           08. SITE FOOTER
            ========================================================================== */
         .site-footer {
             background-color: var(--bg-white);
@@ -385,12 +529,14 @@
 
         @media (max-width: 992px) {
             .about-story { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 576px) {
             .top-bar { display: none; }
             .nav-wrap { flex-direction: column; gap: 16px; }
+            .stats-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
         }
@@ -406,7 +552,7 @@
             </div>
             <div class="top-socials">
                 <a href="news.html">ติดตามข่าวสาร</a>
-                <a href="about.html">ติดต่อเรา</a>
+                <a href="contact-us.html" class="text-gray-700 hover:text-rose-600 font-medium">ติดต่อเรา</a>
             </div>
         </div>
     </div>
@@ -433,24 +579,134 @@
     <section class="page-hero">
         <div class="container">
             <h1>เกี่ยวกับมูลนิธิแสง-ไซ้กี เหตระกูล</h1>
-            <p>สืบสานเจตนารมณ์แห่งการให้ มุ่งมั่นยกระดับคุณภาพชีวิตและมอบโอกาสทางการศึกษาแก่สังคมไทย</p>
+            <p>มุ่งมั่นส่งเสริมสุขภาพอนามัย การสาธารณสุขเคลื่อนที่ ทุนการศึกษาเยาวชน และสาธารณประโยชน์เพื่อประชาชนไทยทั่วประเทศ</p>
         </div>
     </section>
 
-    <main class="container content-section">
-        <div class="about-story">
-            <div class="story-text">
-                <h2>ประวัติความเป็นมา</h2>
-                <p>มูลนิธิแสง-ไซ้กี เหตระกูล ก่อตั้งขึ้นเพื่อเป็นศูนย์กลางในการช่วยเหลือและบรรเทาทุกข์แก่ประชาชนผู้ยากไร้ในพื้นที่ห่างไกล โดยเริ่มต้นจากเจตนารมณ์อันมุ่งมั่นของคุณแสงและคุณไซ้กี เหตระกูล ผู้ก่อตั้งหนังสือพิมพ์เดลินิวส์</p>
-                <p>ตลอดระยะเวลาหลายทศวรรษที่ผ่านมา มูลนิธิฯ ได้ส่งทีมแพทย์เคลื่อนที่ออกตรวจรักษาและแจกจ่ายยาฟรีแก่ประชาชนในชนบท พร้อมทั้งมอบทุนการศึกษาแก่เยาวชนเรียนดีแต่ขาดแคลนทุนทรัพย์ทั่วประเทศอย่างต่อเนื่อง</p>
-            </div>
-            <div class="story-box">
-                <h3>วิสัยทัศน์และพันธกิจ</h3>
-                <p style="margin-bottom: 12px;"><strong>วิสัยทัศน์:</strong> เป็นองค์กรสาธารณกุศลชั้นนำที่สร้างสังคมแห่งโอกาส สุขภาพที่ดี และความเท่าเทียมแก่ประชาชนทุกระดับ</p>
-                <p><strong>พันธกิจ:</strong> สนับสนุนบริการทางการแพทย์เคลื่อนที่ ให้ทุนการศึกษาอย่างทั่วถึง และช่วยเหลือผู้ประสบภัยพิบัติอย่างทันท่วงที</p>
+    <section class="content-section">
+        <div class="container">
+            <div class="about-story">
+                <div class="story-text">
+                    <h2>ประวัติความเป็นมา</h2>
+                    <p>มูลนิธิแสง-ไซ้กี เหตระกูล ก่อตั้งขึ้นเพื่อเป็นอนุสรณ์แด่ <strong>คุณแสง และ คุณไซ้กี เหตระกูล</strong> ผู้ก่อตั้งหนังสือพิมพ์เดลินิวส์ ด้วยเจตนารมณ์อันแน่วแน่ในการช่วยเหลือสังคม บรรเทาความทุกข์ยาก และส่งเสริมคุณภาพชีวิตของประชาชนในถิ่นกันดาร</p>
+                    <p>ตลอดระยะเวลากว่า 50 ปีที่ผ่านมา มูลนิธิฯ ได้ร่วมมือกับแพทย์ผู้เชี่ยวชาญ โรงพยาบาลชั้นนำ และหน่วยงานสาธารณสุข ออกให้บริการหน่วยแพทย์เคลื่อนที่ เพื่อตรวจรักษา และมอบยาโดยไม่คิดค่าใช้จ่ายแก่ผู้ยากไร้ทั่วทุกภูมิภาคของประเทศไทย</p>
+                </div>
+                <div class="story-box">
+                    <h3>วัตถุประสงค์หลักของมูลนิธิ</h3>
+                    <ul>
+                        <li>จัดตั้งหน่วยแพทย์เคลื่อนที่ออกตรวจรักษาและส่งเสริมสุขภาพประชาชนในพื้นที่ห่างไกล</li>
+                        <li>มอบทุนการศึกษาแก่เยาวชนที่เรียนดีแต่ขาดแคลนทุนทรัพย์ทั่วประเทศ</li>
+                        <li>ช่วยเหลือผู้ประสบสาธารณภัย อุทกภัย และภัยพิบัติต่างๆ</li>
+                        <li>ส่งเสริมและสนับสนุนงานสาธารณกุศลเพื่อประโยชน์ของสังคมส่วนรวม</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </main>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-num">50+</div>
+                    <div class="stat-label">ปีแห่งการเคียงข้างสังคมไทย</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">500,000+</div>
+                    <div class="stat-label">ผู้ป่วยได้รับการตรวจรักษาฟรี</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">12,000+</div>
+                    <div class="stat-label">ทุนการศึกษาแก่เด็กและเยาวชน</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">77</div>
+                    <div class="stat-label">จังหวัดครอบคลุมการช่วยเหลือ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>คณะกรรมการมูลนิธิ</h2>
+                <p>คณะกรรมการและผู้บริหารขับเคลื่อนปณิธานการให้เพื่อสังคม</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-img-wrap">
+                        <img src="images/prapee-puipanthavong.jpg" alt="คุณประพีร์ ปุ้ยพันธวงศ์">
+                    </div>
+                    <div class="team-body">
+                        <div class="team-name">คุณประพีร์ ปุ้ยพันธวงศ์</div>
+                        <div class="team-role">ประธานมูลนิธิฯ</div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-img-wrap">
+                        <img src="images/prapin-rujirawong.jpg" alt="คุณประพิณ รุจิรวงศ์">
+                    </div>
+                    <div class="team-body">
+                        <div class="team-name">คุณประพิณ รุจิรวงศ์</div>
+                        <div class="team-role">กรรมการบริหาร</div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-img-wrap">
+                        <img src="images/siriwan-panprechakit.jpg" alt="คุณสิริวรรณ พันธุ์ปรีชากิจ">
+                    </div>
+                    <div class="team-body">
+                        <div class="team-name">คุณสิริวรรณ พันธุ์ปรีชากิจ</div>
+                        <div class="team-role">กรรมการบริหาร</div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-img-wrap">
+                        <img src="images/parames-hetrakul.jpg" alt="คุณปารเมศ เหตระกูล">
+                    </div>
+                    <div class="team-body">
+                        <div class="team-name">คุณปารเมศ เหตระกูล</div>
+                        <div class="team-role">กรรมการบริหาร</div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-img-wrap">
+                        <img src="images/prapa-hetrakul.jpg" alt="ดร.ประภา เหตระกูล ศรีนวลนัด">
+                    </div>
+                    <div class="team-body">
+                        <div class="team-name">ดร.ประภา เหตระกูล ศรีนวลนัด</div>
+                        <div class="team-role">กรรมการบริหาร</div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-img-wrap">
+                        <img src="images/not-rujirawong.jpg" alt="นายนต รุจิรวงศ์">
+                    </div>
+                    <div class="team-body">
+                        <div class="team-name">นายนต รุจิรวงศ์</div>
+                        <div class="team-role">เลขานุการคณะกรรมการบริหาร</div>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-img-wrap">
+                        <img src="images/nalin-rujirawong.jpg" alt="คุณนลิน รุจิรวงศ์">
+                    </div>
+                    <div class="team-body">
+                        <div class="team-name">คุณนลิน รุจิรวงศ์</div>
+                        <div class="team-role">รองกรรมการผู้จัดการใหญ่ ฝ่ายกลยุทธ์องค์กรและการตลาด / เลขานุการกรรมการบริหาร</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="site-footer">
         <div class="container">
@@ -460,44 +716,38 @@
                         <span class="logo-badge">SHF</span>
                         <div class="brand-info">
                             <span class="brand-title">มูลนิธิแสง-ไซ้กี เหตระกูล</span>
-                            <span class="brand-sub">Saeng-Saikee Hetrakul Foundation</span>
                         </div>
                     </a>
-                    <p>มุ่งมั่นส่งเสริมด้านสาธารณสุข ยกระดับคุณภาพชีวิต และมอบโอกาสทางการศึกษาแก่เยาวชนไทยทั่วประเทศอย่างต่อเนื่อง</p>
+                    <p>มุ่งมั่นส่งเสริมสุขภาพอนามัย การศึกษา และสาธารณประโยชน์เพื่อประชาชนคนไทยอย่างยั่งยืน</p>
                 </div>
-
                 <div>
-                    <h3 class="footer-heading">เมนูหลัก</h3>
+                    <h4 class="footer-heading">เมนูลัด</h4>
                     <ul class="footer-links">
                         <li><a href="index.html">หน้าแรก</a></li>
                         <li><a href="about.html">เกี่ยวกับเรา</a></li>
-                        <li><a href="news.html">ข่าวสาร</a></li>
+                        <li><a href="news.html">ข่าวสารและกิจกรรม</a></li>
                         <li><a href="donate.html">ร่วมบริจาค</a></li>
                     </ul>
                 </div>
-
                 <div>
-                    <h3 class="footer-heading">ข้อมูลเพิ่มเติม</h3>
+                    <h4 class="footer-heading">โครงการหลัก</h4>
                     <ul class="footer-links">
-                        <li><a href="about.html">คณะกรรมการ</a></li>
-                        <li><a href="about.html">ประวัติมูลนิธิ</a></li>
-                        <li><a href="news.html">หน่วยแพทย์เคลื่อนที่</a></li>
+                        <li><a href="#">หน่วยแพทย์เคลื่อนที่</a></li>
+                        <li><a href="#">ทุนการศึกษาเยาวชน</a></li>
+                        <li><a href="#">บรรเทาสาธารณภัย</a></li>
                     </ul>
                 </div>
-
                 <div>
-                    <h3 class="footer-heading">ติดต่อเรา</h3>
+                    <h4 class="footer-heading">สำนักงานมูลนิธิ</h4>
                     <div class="footer-contact-info">
-                        <p>📍 1/4 อาคารเดลินิวส์ ถนนวิภาวดีรังสิต แขวงตลาดบางเขน เขตหลักสี่ กรุงเทพฯ 10210</p>
-                        <p>📞 โทรศัพท์: 0-2790-1111</p>
-                        <p>✉️ อีเมล: contact@saengsaikee-foundation.org</p>
+                        1/4 อาคารเดลินิวส์ ถนนวิภาวดีรังสิต แขวงตลาดบางเขน เขตหลักสี่ กรุงเทพมหานคร 10210<br>
+                        โทรศัพท์: 0-2790-1111
                     </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>© 2026 มูลนิธิแสง-ไซ้กี เหตระกูล. สงวนลิขสิทธิ์.</p>
-                <p>พัฒนาโครงสร้างด้วย HTML5 & CSS3 Clean Standard</p>
+                <span>&copy; 2026 มูลนิธิแสง-ไซ้กี เหตระกูล (Saeng-Saikee Hetrakul Foundation). All Rights Reserved.</span>
+                <span>ออกแบบเพื่อสังคมไทย</span>
             </div>
         </div>
     </footer>
