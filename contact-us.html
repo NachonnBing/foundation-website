@@ -505,6 +505,14 @@
             color: var(--text-light);
         }
 
+                /* Custom Image Logo Styling */
+        .custom-site-logo {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            border-radius: var(--radius-sm);
+        }
+
         /* Responsive Breakpoints */
         @media (max-width: 992px) {
             .contact-grid { grid-template-columns: 1fr; }
@@ -530,7 +538,7 @@
             </div>
             <div class="top-socials">
                 <a href="news.html">ติดตามข่าวสาร</a>
-                <a href="contact-us.html" class="active">ติดต่อเรา</a>
+                <a href="contact-us.html">ติดต่อเรา</a>
             </div>
         </div>
     </div>
@@ -538,13 +546,13 @@
     <header class="site-header">
         <div class="container nav-wrap">
             <a href="index.html" class="brand-logo">
-                <span class="logo-badge">SHF</span>
+                <img src="Logo.jpg" alt="SHF Logo" class="custom-site-logo">
                 <div class="brand-info">
                     <span class="brand-title">มูลนิธิแสง-ไซ้กี เหตระกูล</span>
                     <span class="brand-sub">Saeng-Saikee Hetrakul Foundation</span>
                 </div>
             </a>
-            
+        
             <nav class="main-nav">
                 <a href="index.html" class="nav-link">หน้าแรก</a>
                 <a href="about.html" class="nav-link">เกี่ยวกับเรา</a>
@@ -647,51 +655,49 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="brand-logo">
-                        <span class="logo-badge">SHF</span>
+                        <img src="Logo.jpg" alt="SHF Logo" class="custom-site-logo">
                         <div class="brand-info">
                             <span class="brand-title">มูลนิธิแสง-ไซ้กี เหตระกูล</span>
                             <span class="brand-sub">Saeng-Saikee Hetrakul Foundation</span>
                         </div>
                     </a>
-                    <p>มุ่งมั่นส่งเสริมสุขภาพและมอบโอกาสทางการศึกษาแก่สังคมไทย เพื่อสร้างอนาคตที่ยั่งยืนให้แก่ผู้ด้อยโอกาสทั่วประเทศ</p>
-                </div>
+                <p>มุ่งมั่นส่งเสริมด้านสาธารณสุข ยกระดับคุณภาพชีวิต และมอบโอกาสทางการศึกษาแก่เยาวชนไทยทั่วประเทศอย่างต่อเนื่อง</p>
+            </div>
 
-                <div>
-                    <h4 class="footer-heading">เมนูลัด</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html">หน้าแรก</a></li>
-                        <li><a href="about.html">เกี่ยวกับเรา</a></li>
-                        <li><a href="news.html">ข่าวสารและกิจกรรม</a></li>
-                        <li><a href="contact-us.html">ติดต่อเรา</a></li>
-                    </ul>
-                </div>
+            <div>
+                <h3 class="footer-heading">เมนูหลัก</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">หน้าแรก</a></li>
+                    <li><a href="about.html">เกี่ยวกับเรา</a></li>
+                    <li><a href="news.html">ข่าวสาร</a></li>
+                    <li><a href="donate.html">ร่วมบริจาค</a></li>
+                </ul>
+            </div>
 
-                <div>
-                    <h4 class="footer-heading">พันธกิจ</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">หน่วยแพทย์เคลื่อนที่</a></li>
-                        <li><a href="#">ทุนการศึกษา</a></li>
-                        <li><a href="#">ช่วยเหลือภัยพิบัติ</a></li>
-                        <li><a href="donate.html">ร่วมบริจาค</a></li>
-                    </ul>
-                </div>
+            <div>
+                <h3 class="footer-heading">ข้อมูลเพิ่มเติม</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html">คณะกรรมการ</a></li>
+                    <li><a href="about.html">ประวัติมูลนิธิ</a></li>
+                    <li><a href="news.html">หน่วยแพทย์เคลื่อนที่</a></li>
+                </ul>
+            </div>
 
-                <div>
-                    <h4 class="footer-heading">ติดต่อเรา</h4>
+            <div>
+                <h3 class="footer-heading">ติดต่อเรา</h3>
                     <div class="footer-contact-info">
-                        <p>1/4 อาคารเดลินิวส์ ถนนวิภาวดีรังสิต แขวงตลาดบางเขน เขตหลักสี่ กรุงเทพฯ 10210</p>
-                        <p>โทรศัพท์: 0-2790-1111</p>
-                        <p>อีเมล: nachonn@khunpitiluck.com</p>
+                        <p>📍 1/4 อาคารเดลินิวส์ ถนนวิภาวดีรังสิต แขวงตลาดบางเขน เขตหลักสี่ กรุงเทพฯ 10210</p>
+                        <p>📞 โทรศัพท์: 0-2790-1111</p>
+                        <p>✉️ อีเมล: nachonn@khunpitiluck.com</p>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 มูลนิธิแสง-ไซ้กี เหตระกูล. สงวนลิขสิทธิ์ทั้งหมด.</p>
-                <p>ออกแบบและพัฒนาเพื่อสาธารณประโยชน์</p>
+                <p>© 2026 มูลนิธิแสง-ไซ้กี เหตระกูล. สงวนลิขสิทธิ์.</p>
+                <p>พัฒนาโครงสร้างด้วย HTML5 & CSS3 Clean Standard</p>
             </div>
         </div>
     </footer>
-
 </body>
 </html>
