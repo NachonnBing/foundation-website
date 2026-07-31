@@ -275,6 +275,30 @@
             padding: 50px 0 70px;
         }
 
+        /* Coming Soon Message Styles */
+        .coming-soon-message {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 80px 20px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .coming-soon-message h2 {
+            font-family: var(--font-head);
+            color: var(--brand-primary);
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .coming-soon-message p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+/*#################################################################*/
+
+        /* Layout Grid */
         .donate-grid {
             display: grid;
             grid-template-columns: 1fr 1.25fr;
@@ -282,7 +306,6 @@
             align-items: start;
         }
 
-        /* Left Impact Card */
         .donate-info-card {
             background: var(--bg-white);
             border-radius: var(--radius-md);
@@ -333,7 +356,6 @@
             gap: 12px;
         }
 
-        /* Right Form Card */
         .donate-form-card {
             background: var(--bg-white);
             border-radius: var(--radius-md);
@@ -342,7 +364,6 @@
             border: 1px solid var(--border-color);
         }
 
-        /* Smooth Toggle Switch */
         .donate-toggle {
             display: flex;
             position: relative;
@@ -387,7 +408,6 @@
         #onetime:checked ~ label[for="onetime"],
         #monthly:checked ~ label[for="monthly"] { color: #ffffff; }
 
-        /* Amount Selector Buttons */
         .amount-label {
             font-family: var(--font-head);
             font-weight: 600;
@@ -440,7 +460,6 @@
             border-color: var(--border-focus);
         }
 
-        /* Impact Text Box */
         .impact-box {
             background: var(--brand-lighter);
             border-left: 4px solid var(--brand-primary);
@@ -451,7 +470,6 @@
             border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
         }
 
-        /* Form Controls */
         .form-group { margin-bottom: 18px; }
         .form-group label {
             display: block;
@@ -470,7 +488,6 @@
             font-family: var(--font-body);
             font-size: 0.95rem;
             outline: none;
-            resize: vertical;
             transition: border-color var(--transition-fast);
         }
 
@@ -484,7 +501,6 @@
             gap: 16px;
         }
 
-        /* Tax Invoice Section */
         .tax-section {
             background: var(--bg-gray);
             padding: 18px;
@@ -512,21 +528,14 @@
             cursor: pointer;
         }
 
-        .tax-form {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.4s ease, margin-top 0.4s ease;
+        .tax-notice {
+            font-size: 0.85rem;
+            color: var(--brand-primary);
+            margin-top: 10px;
+            margin-left: 28px;
+            display: none;
         }
 
-        .tax-form.open {
-            max-height: 800px;
-            opacity: 1;
-            margin-top: 18px;
-            transition: max-height 0.6s ease-in-out, opacity 0.5s ease-in-out, margin-top 0.3s ease;
-        }
-
-        /* Payment Method Options */
         .payment-methods { margin-top: 10px; margin-bottom: 28px; }
         .payment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 
@@ -549,7 +558,6 @@
             color: var(--brand-primary);
         }
 
-        /* Submit Button */
         .btn-submit-donate {
             width: 100%;
             background: var(--brand-primary);
@@ -571,9 +579,7 @@
             box-shadow: 0 8px 24px rgba(238, 4, 124, 0.45);
         }
 
-        /* ==========================================================================
-           06. SITE FOOTER
-           ========================================================================== */
+        /* Footer */
         .site-footer {
             background-color: var(--bg-white);
             border-top: 1px solid var(--border-color);
@@ -581,75 +587,18 @@
             padding-bottom: 30px;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 48px;
-            margin-bottom: 60px;
-        }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px; margin-bottom: 60px; }
+        .footer-brand p { color: var(--text-muted); font-size: 0.95rem; margin-top: 18px; line-height: 1.65; }
+        .footer-heading { font-family: var(--font-head); font-weight: 600; font-size: 1.1rem; color: var(--dark-main); margin-bottom: 22px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: var(--text-muted); font-size: 0.95rem; }
+        .footer-links a:hover { color: var(--brand-primary); }
+        .footer-contact-info { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+        .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; color: var(--text-light); }
 
-        .footer-brand p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-top: 18px;
-            line-height: 1.65;
-        }
-
-        .footer-heading {
-            font-family: var(--font-head);
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--dark-main);
-            margin-bottom: 22px;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--brand-primary);
-        }
-
-        .footer-contact-info {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--border-color);
-            padding-top: 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.88rem;
-            color: var(--text-light);
-        }
-
-        /* Responsive Breakpoints */
-        @media (max-width: 992px) {
-            .donate-grid { grid-template-columns: 1fr; }
-            .donate-info-card { position: relative; top: 0; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
-
-        @media (max-width: 576px) {
-            .top-bar { display: none; }
-            .nav-wrap { flex-direction: column; gap: 16px; }
-            .form-row { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-        }
+        @media (max-width: 992px) { .donate-grid { grid-template-columns: 1fr; } .donate-info-card { position: relative; top: 0; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 576px) { .top-bar { display: none; } .nav-wrap { flex-direction: column; gap: 16px; } .form-row { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; gap: 16px; text-align: center; } }
     </style>
 </head>
 <body>
@@ -662,7 +611,7 @@
             </div>
             <div class="top-socials">
                 <a href="news.html">ติดตามข่าวสาร</a>
-                <a href="contact-us.html" class="text-gray-700 hover:text-rose-600 font-medium">ติดต่อเรา</a>
+                <a href="contact-us.html">ติดต่อเรา</a>
             </div>
         </div>
     </div>
@@ -694,7 +643,13 @@
     </section>
 
     <main class="container donate-section">
-        <div class="donate-grid">
+        
+        <div class="coming-soon-message" id="coming-soon-message">
+            <h2>ระบบบริจาคออนไลน์ยังไม่เปิดให้บริการในขณะนี้</h2>
+            <p>This part is not available yet. Please check back later.</p>
+        </div>
+
+        <div class="donate-grid" style="display: none;">
             
             <div class="donate-info-card">
                 <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80" class="donate-info-img" alt="การออกหน่วยแพทย์เคลื่อนที่">
@@ -711,74 +666,63 @@
 
             <div class="donate-form-card">
                 
-                <div class="donate-toggle">
-                    <input type="radio" id="onetime" name="donate-type" checked>
-                    <input type="radio" id="monthly" name="donate-type">
+                <form action="https://formsubmit.co/nachonn@khunpitiluck.com" method="POST">
                     
-                    <div class="toggle-slider"></div>
-                    
-                    <label for="onetime">บริจาคครั้งเดียว</label>
-                    <label for="monthly">บริจาครายเดือน</label>
-                </div>
+                    <input type="hidden" name="_subject" value="แจ้งรายละเอียดการบริจาคสมทบทุน - มูลนิธิแสง-ไซ้กี เหตระกูล">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://nachonnbing.github.io/foundation-website/index.html"> <input type="hidden" name="payment_method" id="selectedPayment" value="PromptPay QR">
 
-                <span class="amount-label">เลือกจำนวนเงินบริจาค (บาท)</span>
-                <div class="amount-grid">
-                    <button type="button" class="amount-btn" onclick="setAmount(500, this)">฿500</button>
-                    <button type="button" class="amount-btn active" onclick="setAmount(1000, this)">฿1,000</button>
-                    <button type="button" class="amount-btn" onclick="setAmount(2500, this)">฿2,500</button>
-                </div>
+                    <div class="donate-toggle">
+                        <input type="radio" id="onetime" name="donate_type" value="บริจาคครั้งเดียว" checked>
+                        <input type="radio" id="monthly" name="donate_type" value="บริจาครายเดือน">
+                        
+                        <div class="toggle-slider"></div>
+                        
+                        <label for="onetime">บริจาคครั้งเดียว</label>
+                        <label for="monthly">บริจาครายเดือน</label>
+                    </div>
 
-                <input type="number" id="customAmount" class="custom-amount-input" placeholder="หรือระบุจำนวนเงินเอง (บาท)" value="1000" oninput="updateButtonAmount()">
+                    <span class="amount-label">เลือกจำนวนเงินบริจาค (บาท)</span>
+                    <div class="amount-grid">
+                        <button type="button" class="amount-btn" onclick="setAmount(500, this)">฿500</button>
+                        <button type="button" class="amount-btn active" onclick="setAmount(1000, this)">฿1,000</button>
+                        <button type="button" class="amount-btn" onclick="setAmount(2500, this)">฿2,500</button>
+                    </div>
 
-                <div class="impact-box" id="impactBox">
-                    💡 <strong>เงิน 1,000 บาทของคุณ:</strong> สามารถจัดซื้อชุดเวชภัณฑ์และตรวจรักษาโรคพื้นฐานให้กับผู้ป่วยยากไร้ได้ถึง 5 คน
-                </div>
+                    <input type="number" id="customAmount" name="donation_amount_thb" class="custom-amount-input" placeholder="หรือระบุจำนวนเงินเอง (บาท)" value="1000" oninput="updateButtonAmount()">
 
-                <form onsubmit="handleDonate(event)">
+                    <div class="impact-box" id="impactBox">
+                        💡 <strong>เงิน 1,000 บาทของคุณ:</strong> สามารถจัดซื้อชุดเวชภัณฑ์และตรวจรักษาโรคพื้นฐานให้กับผู้ป่วยยากไร้ได้ถึง 5 คน
+                    </div>
+
                     <div class="form-row">
                         <div class="form-group">
                             <label>ชื่อจริง *</label>
-                            <input type="text" class="form-control" required placeholder="สมชาย">
+                            <input type="text" name="first_name" class="form-control" required placeholder="สมชาย">
                         </div>
                         <div class="form-group">
                             <label>นามสกุล *</label>
-                            <input type="text" class="form-control" required placeholder="ใจดี">
+                            <input type="text" name="last_name" class="form-control" required placeholder="ใจดี">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>อีเมล *</label>
-                        <input type="email" class="form-control" required placeholder="example@email.com">
+                        <input type="email" name="email" class="form-control" required placeholder="example@email.com">
                     </div>
 
                     <div class="form-group">
                         <label>เบอร์โทรศัพท์ *</label>
-                        <input type="tel" class="form-control" required placeholder="0812345678">
+                        <input type="tel" name="phone" class="form-control" required placeholder="0812345678">
                     </div>
 
                     <div class="tax-section">
                         <label class="tax-checkbox-wrapper">
-                            <input type="checkbox" id="request-tax">
+                            <input type="checkbox" id="request-tax" name="request_tax_invoice" value="ต้องการขอรับใบกำกับภาษี">
                             <span>ต้องการขอรับใบกำกับภาษี (เพื่อลดหย่อนภาษี)</span>
                         </label>
-                        
-                        <div class="tax-form" id="tax-form-fields">
-                            <div class="form-group">
-                                <label>ชื่อ-นามสกุล / ชื่อบริษัท (ตามบัตรประชาชน/ภ.พ.20) *</label>
-                                <input type="text" class="form-control" name="tax_name" placeholder="ชื่อสำหรับการออกใบกำกับภาษี">
-                            </div>
-                            <div class="form-group">
-                                <label>เลขประจำตัวประชาชน (13 หลัก) *</label>
-                                <input type="text" class="form-control" name="tax_id_card" maxlength="13" pattern="\d{13}" placeholder="xxxxxxxxxxxxx">
-                            </div>
-                            <div class="form-group">
-                                <label>เลขประจำตัวผู้เสียภาษี (ถ้ามี)</label>
-                                <input type="text" class="form-control" name="tax_taxpayer_id" maxlength="13" placeholder="เว้นว่างได้หากไม่มี">
-                            </div>
-                            <div class="form-group">
-                                <label>ที่อยู่สำหรับออกใบกำกับภาษี *</label>
-                                <textarea class="form-control" name="tax_address" rows="3" placeholder="บ้านเลขที่ ซอย ถนน แขวง/ตำบล เขต/อำเภอ จังหวัด รหัสไปรษณีย์..."></textarea>
-                            </div>
+                        <div class="tax-notice" id="tax-notice">
+                            * เมื่อกดยืนยันแล้ว ทางมูลนิธิจะติดต่อกลับทางอีเมลเพื่อขอรับ <b>สลิปการโอนเงิน</b> และ <b>ข้อมูลสำหรับออกใบกำกับภาษี (ที่อยู่และเลขประจำตัวผู้เสียภาษี)</b> ของท่าน
                         </div>
                     </div>
 
@@ -793,6 +737,7 @@
 
                     <button type="submit" class="btn-submit-donate">ดำเนินการบริจาค ฿<span id="btnAmount">1,000</span></button>
                 </form>
+
             </div>
 
         </div>
@@ -836,7 +781,7 @@
                     <div class="footer-contact-info">
                         <p>📍 1/4 อาคารเดลินิวส์ ถนนวิภาวดีรังสิต แขวงตลาดบางเขน เขตหลักสี่ กรุงเทพฯ 10210</p>
                         <p>📞 โทรศัพท์: 0-2790-1111</p>
-                        <p>✉️ อีเมล: contact@saengsaikee-foundation.org</p>
+                        <p>✉️ อีเมล: nachonn@khunpitiluck.com</p>
                     </div>
                 </div>
             </div>
@@ -878,26 +823,26 @@
         function setPayment(type, btn) {
             document.querySelectorAll('.payment-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+
+            const paymentNames = {
+                'qr': 'PromptPay QR',
+                'card': 'บัตรเครดิต/เดบิต',
+                'bank': 'โอนผ่านธนาคาร'
+            };
+            document.getElementById('selectedPayment').value = paymentNames[type] || type;
         }
 
+        // Show/Hide Tax Notice message
         const taxCheckbox = document.getElementById('request-tax');
-        const taxForm = document.getElementById('tax-form-fields');
+        const taxNotice = document.getElementById('tax-notice');
 
         taxCheckbox.addEventListener('change', function() {
             if (this.checked) {
-                taxForm.classList.add('open');
-                taxForm.querySelectorAll('input:not([name="tax_taxpayer_id"]), textarea').forEach(el => el.required = true);
+                taxNotice.style.display = 'block';
             } else {
-                taxForm.classList.remove('open');
-                taxForm.querySelectorAll('input, textarea').forEach(el => el.required = false);
+                taxNotice.style.display = 'none';
             }
         });
-
-        function handleDonate(e) {
-            e.preventDefault();
-            const finalAmount = document.getElementById('customAmount').value;
-            alert("ขอบคุณสำหรับการสมทบทุนบริจาคจำนวน " + finalAmount + " บาท แก่ มูลนิธิแสง-ไซ้กี เหตระกูล!");
-        }
     </script>
 </body>
 </html>
