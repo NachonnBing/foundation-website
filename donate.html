@@ -39,14 +39,14 @@
             --font-head: 'Prompt', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             --font-body: 'Sarabun', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             
-            --radius-xs: 4px;
-            --radius-sm: 6px;
-            --radius-md: 12px;
-            --radius-lg: 20px;
+            /* Concentric Radii Geometry */
+            --card-padding: 20px;
+            --radius-outer: 32px;
+            --radius-inner: calc(var(--radius-outer) - var(--card-padding)); /* 32px - 20px = 12px */
             --radius-full: 9999px;
             
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.06);
             
             --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -90,6 +90,7 @@
             padding: 0 20px;
         }
 
+        /* Top Bar */
         .top-bar {
             background-color: var(--dark-main);
             color: #ffffff;
@@ -122,6 +123,7 @@
             color: var(--brand-primary);
         }
 
+        /* Site Header */
         .site-header {
             background-color: var(--bg-white);
             border-bottom: 2px solid var(--border-color);
@@ -148,7 +150,7 @@
             height: 50px;
             width: auto;
             object-fit: contain;
-            border-radius: var(--radius-sm);
+            border-radius: 6px;
         }
 
         .brand-info {
@@ -204,6 +206,7 @@
             transform: translateY(-2px);
         }
 
+        /* Hero Banner */
         .page-hero {
             background: linear-gradient(135deg, var(--bg-gray-alt) 0%, var(--brand-lighter) 100%);
             padding: 50px 0 40px;
@@ -230,34 +233,46 @@
             padding: 50px 0 70px;
         }
 
+        /* Concentric Grid Layout */
         .donate-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 36px;
-            align-items: center;
+            gap: 32px;
+            align-items: stretch;
+        }
+
+        .donate-info-card, 
+        .qr-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-outer); /* 32px */
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .donate-info-card {
-            background: var(--bg-white);
-            border-radius: var(--radius-md);
             overflow: hidden;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-color);
         }
 
         .donate-info-img {
             width: 100%;
-            height: 260px;
+            height: 230px;
             object-fit: cover;
         }
 
         .donate-info-body {
-            padding: 32px;
+            padding: var(--card-padding); /* 20px uniform padding around body */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
         }
 
         .donate-info-body h2 {
             font-family: var(--font-head);
-            font-size: 1.5rem;
+            font-size: 1.45rem;
             font-weight: 700;
             color: var(--dark-main);
             margin-bottom: 12px;
@@ -267,16 +282,17 @@
         .donate-info-body p {
             font-size: 0.98rem;
             color: var(--text-muted);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             line-height: 1.7;
         }
 
+        /* Concentric Inner Tax Badge */
         .tax-badge {
             background: var(--brand-lighter);
             border: 1px solid var(--brand-light);
             color: var(--brand-dark);
             padding: 14px 18px;
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-inner); /* Exactly 12px for perfect concentricity */
             font-family: var(--font-head);
             font-size: 0.9rem;
             font-weight: 600;
@@ -285,56 +301,60 @@
             gap: 12px;
         }
 
+        /* Concentric Floating QR Card */
         .qr-card {
-            background: var(--bg-white);
-            border-radius: var(--radius-md);
-            padding: 40px 32px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-color);
+            padding: var(--card-padding); /* Uniform 20px padding */
             text-align: center;
         }
 
-        .qr-card h3 {
+        .qr-card-header {
+            margin-top: 10px;
+        }
+
+        .qr-card-header h3 {
             font-family: var(--font-head);
-            font-size: 1.4rem;
+            font-size: 1.45rem;
             color: var(--dark-main);
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
-        .qr-card p {
+        .qr-card-header p {
             font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
 
+        /* Floating QR Container */
         .qr-image-wrapper {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: var(--radius-md);
-            display: inline-block;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-            border: 1.5px solid var(--brand-light);
-            margin-bottom: 20px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 16px auto;
+            background: transparent;
+            border: none;
+            box-shadow: none;
         }
 
         .qr-code-img {
-            width: 280px;
+            width: 240px;
             height: auto;
             max-width: 100%;
             display: block;
-            margin: 0 auto;
         }
 
+        /* Concentric Inner QR Info Badge */
         .qr-badge-info {
             background: var(--bg-gray-alt);
-            border-radius: var(--radius-sm);
-            padding: 12px 16px;
+            border-radius: var(--radius-inner); /* Exactly 12px for perfect concentricity */
+            padding: 14px 18px;
             font-size: 0.88rem;
             color: var(--dark-main);
-            line-height: 1.5;
+            line-height: 1.6;
+            text-align: left;
         }
 
+        /* Footer */
         .site-footer {
             background-color: var(--bg-white);
             border-top: 1px solid var(--border-color);
@@ -352,8 +372,16 @@
         .footer-contact-info { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
         .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; color: var(--text-light); }
 
-        @media (max-width: 992px) { .donate-grid { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 576px) { .top-bar { display: none; } .nav-wrap { flex-direction: column; gap: 16px; } .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; gap: 16px; text-align: center; } }
+        @media (max-width: 992px) { 
+            .donate-grid { grid-template-columns: 1fr; } 
+            .footer-grid { grid-template-columns: 1fr 1fr; } 
+        }
+        @media (max-width: 576px) { 
+            .top-bar { display: none; } 
+            .nav-wrap { flex-direction: column; gap: 16px; } 
+            .footer-grid { grid-template-columns: 1fr; } 
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; } 
+        }
     </style>
 </head>
 <body>
@@ -402,8 +430,10 @@
             <div class="donate-info-card">
                 <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80" class="donate-info-img" alt="การออกหน่วยแพทย์เคลื่อนที่">
                 <div class="donate-info-body">
-                    <h2>สร้างสังคมแห่งโอกาสและการรักษาอย่างเท่าเทียม</h2>
-                    <p>ทุกการบริจาคของคุณจะถูกนำไปจัดซื้อยารักษาโรค เครื่องมือทางการแพทย์สำหรับหน่วยแพทย์เคลื่อนที่ และมอบเป็นทุนการศึกษาแก่เยาวชนผู้ขาดแคลนทุนทรัพย์</p>
+                    <div>
+                        <h2>สร้างสังคมแห่งโอกาสและการรักษาอย่างเท่าเทียม</h2>
+                        <p>ทุกการบริจาคของคุณจะถูกนำไปจัดซื้อยารักษาโรค เครื่องมือทางการแพทย์สำหรับหน่วยแพทย์เคลื่อนที่ และมอบเป็นทุนการศึกษาแก่เยาวชนผู้ขาดแคลนทุนทรัพย์</p>
+                    </div>
                     
                     <div class="tax-badge">
                         <span>🧾</span>
@@ -413,8 +443,10 @@
             </div>
 
             <div class="qr-card">
-                <h3>สแกน QR Code เพื่อบริจาค</h3>
-                <p>สแกนผ่านแอปพลิเคชันธนาคารเพื่อบริจาคตามจำนวนเงินที่ท่านต้องการ</p>
+                <div class="qr-card-header">
+                    <h3>สแกน QR Code เพื่อบริจาค</h3>
+                    <p>สแกนผ่านแอปพลิเคชันธนาคารเพื่อบริจาคตามจำนวนเงินที่ท่านต้องการ</p>
+                </div>
                 
                 <div class="qr-image-wrapper">
                     <img src="donate QR.jpg" alt="Donate QR Code" class="qr-code-img">
